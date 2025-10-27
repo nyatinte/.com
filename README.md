@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js プロジェクト
 
-## Getting Started
+このプロジェクトは[Next.js](https://nextjs.org)を使用して構築されています。
 
-First, run the development server:
+## 使用技術
+
+- **Next.js 16** - Reactフレームワーク
+- **TypeScript** - 型安全な開発
+- **Tailwind CSS v4** - ユーティリティファーストのCSSフレームワーク
+- **bun** - 高速なパッケージマネージャー
+
+## セットアップ
+
+依存関係をインストール：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 開発
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+開発サーバーを起動：
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run dev
+```
 
-## Learn More
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いて結果を確認できます。
 
-To learn more about Next.js, take a look at the following resources:
+`app/page.tsx` を編集することでページを編集できます。ファイルを編集すると、ページは自動的に更新されます。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ビルド
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+プロダクション用にビルド：
 
-## Deploy on Vercel
+```bash
+bun run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ビルドしたアプリケーションを起動：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+bun run start
+```
+
+## リント
+
+ESLintを実行：
+
+```bash
+bun run lint
+```
+
+## コントリビューション
+
+このプロジェクトへの貢献に興味がある方は、[CONTRIBUTING.md](./CONTRIBUTING.md)をご覧ください。
+
+**重要：**
+- コミットメッセージとプルリクエストは日本語で記述してください
+- パッケージマネージャーとして `bun` を使用してください
+
+## 参考リンク
+
+- [Next.js ドキュメント](https://nextjs.org/docs) - Next.jsの機能とAPIについて学ぶ
+- [Next.js チュートリアル](https://nextjs.org/learn) - インタラクティブなNext.jsチュートリアル
+- [Tailwind CSS ドキュメント](https://tailwindcss.com/docs) - Tailwind CSSの使い方
+
+## デプロイ
+
+このアプリケーションを[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)にデプロイできます。
+
+詳細は[Next.jsデプロイドキュメント](https://nextjs.org/docs/app/building-your-application/deploying)を参照してください。

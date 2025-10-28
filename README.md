@@ -51,14 +51,6 @@ ESLintを実行：
 bun run lint
 ```
 
-## コントリビューション
-
-このプロジェクトへの貢献に興味がある方は、[CONTRIBUTING.md](./CONTRIBUTING.md)をご覧ください。
-
-**重要：**
-- コミットメッセージとプルリクエストは日本語で記述してください
-- パッケージマネージャーとして `bun` を使用してください
-
 ## 参考リンク
 
 - [Next.js ドキュメント](https://nextjs.org/docs) - Next.jsの機能とAPIについて学ぶ

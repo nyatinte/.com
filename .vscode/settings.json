@@ -1,0 +1,4 @@
+{
+  "typescript.tsserver.experimental.useNativePreview": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

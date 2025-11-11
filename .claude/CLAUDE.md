@@ -1,123 +1,123 @@
-# Ultracite Code Standards
+# Ultracite コード規約
 
-This project uses **Ultracite**, a zero-config Biome preset that enforces strict code quality standards through automated formatting and linting.
+このプロジェクトでは **Ultracite** を使用しています。これは、自動フォーマットとリント機能により厳格なコード品質基準を適用する、設定不要のBiomeプリセットです。
 
-## Quick Reference
+## クイックリファレンス
 
-- **Format code**: `npx ultracite fix`
-- **Check for issues**: `npx ultracite check`
-- **Diagnose setup**: `npx ultracite doctor`
+- **コードのフォーマット**: `pnpm ultracite fix`
+- **問題のチェック**: `pnpm ultracite check`
+- **セットアップの診断**: `pnpm ultracite doctor`
 
-Biome (the underlying engine) provides extremely fast Rust-based linting and formatting. Most issues are automatically fixable.
+Biome(基盤となるエンジン)は、Rust製の超高速なリントとフォーマットを提供します。ほとんどの問題は自動で修正可能です。
 
 ---
 
-## Core Principles
+## 基本原則
 
-Write code that is **accessible, performant, type-safe, and maintainable**. Focus on clarity and explicit intent over brevity.
+**アクセシブルで、パフォーマンスが高く、型安全で、保守可能な**コードを書くこと。簡潔さよりも、明確性と明示的な意図を重視します。
 
-### Type Safety & Explicitness
+### 型安全性と明示性
 
-- Use explicit types for function parameters and return values when they enhance clarity
-- Prefer `unknown` over `any` when the type is genuinely unknown
-- Use const assertions (`as const`) for immutable values and literal types
-- Leverage TypeScript's type narrowing instead of type assertions
-- Use meaningful variable names instead of magic numbers - extract constants with descriptive names
+- 明確性を高める場合は、関数のパラメータと戻り値に明示的な型を使用する
+- 型が本当に不明な場合は、`any`よりも`unknown`を優先する
+- 不変値とリテラル型には const アサーション(`as const`)を使用する
+- 型アサーションではなく、TypeScriptの型の絞り込みを活用する
+- マジックナンバーではなく意味のある変数名を使用する - 説明的な名前の定数を抽出する
 
-### Modern JavaScript/TypeScript
+### モダンなJavaScript/TypeScript
 
-- Use arrow functions for callbacks and short functions
-- Prefer `for...of` loops over `.forEach()` and indexed `for` loops
-- Use optional chaining (`?.`) and nullish coalescing (`??`) for safer property access
-- Prefer template literals over string concatenation
-- Use destructuring for object and array assignments
-- Use `const` by default, `let` only when reassignment is needed, never `var`
+- コールバックや短い関数にはアロー関数を使用する
+- `.forEach()`やインデックス付き`for`ループよりも`for...of`ループを優先する
+- より安全なプロパティアクセスのためにオプショナルチェイニング(`?.`)とNull合体演算子(`??`)を使用する
+- 文字列連結よりもテンプレートリテラルを優先する
+- オブジェクトと配列の代入には分割代入を使用する
+- デフォルトで`const`を使用し、再代入が必要な場合のみ`let`を使用、`var`は使用しない
 
-### Async & Promises
+### 非同期とPromise
 
-- Always `await` promises in async functions - don't forget to use the return value
-- Use `async/await` syntax instead of promise chains for better readability
-- Handle errors appropriately in async code with try-catch blocks
-- Don't use async functions as Promise executors
+- async関数内では必ずpromiseを`await`する - 戻り値を使用することを忘れない
+- 可読性向上のため、promiseチェーンではなく`async/await`構文を使用する
+- try-catchブロックで非同期コードのエラーを適切に処理する
+- Promise executorとして非同期関数を使用しない
 
 ### React & JSX
 
-- Use function components over class components
-- Call hooks at the top level only, never conditionally
-- Specify all dependencies in hook dependency arrays correctly
-- Use the `key` prop for elements in iterables (prefer unique IDs over array indices)
-- Nest children between opening and closing tags instead of passing as props
-- Don't define components inside other components
-- Use semantic HTML and ARIA attributes for accessibility:
-  - Provide meaningful alt text for images
-  - Use proper heading hierarchy
-  - Add labels for form inputs
-  - Include keyboard event handlers alongside mouse events
-  - Use semantic elements (`<button>`, `<nav>`, etc.) instead of divs with roles
+- クラスコンポーネントよりも関数コンポーネントを使用する
+- フックはトップレベルでのみ呼び出し、条件付きで呼び出さない
+- フックの依存配列にすべての依存関係を正しく指定する
+- イテラブルの要素には`key`プロップを使用する(配列のインデックスよりもユニークIDを優先)
+- 子要素はpropsとして渡すのではなく、開始タグと終了タグの間にネストする
+- 他のコンポーネント内でコンポーネントを定義しない
+- アクセシビリティのためにセマンティックHTMLとARIA属性を使用する:
+  - 画像に意味のあるalt属性を提供する
+  - 適切な見出し階層を使用する
+  - フォーム入力にラベルを追加する
+  - マウスイベントと一緒にキーボードイベントハンドラを含める
+  - roleを持つdivではなく、セマンティック要素(`<button>`、`<nav>`など)を使用する
 
-### Error Handling & Debugging
+### エラーハンドリングとデバッグ
 
-- Remove `console.log`, `debugger`, and `alert` statements from production code
-- Throw `Error` objects with descriptive messages, not strings or other values
-- Use `try-catch` blocks meaningfully - don't catch errors just to rethrow them
-- Prefer early returns over nested conditionals for error cases
+- 本番コードから`console.log`、`debugger`、`alert`文を削除する
+- 文字列や他の値ではなく、説明的なメッセージを持つ`Error`オブジェクトをスローする
+- `try-catch`ブロックを意味のある形で使用する - エラーを再スローするためだけにキャッチしない
+- エラーケースには、ネストした条件分岐よりもアーリーリターンを優先する
 
-### Code Organization
+### コード構成
 
-- Keep functions focused and under reasonable cognitive complexity limits
-- Extract complex conditions into well-named boolean variables
-- Use early returns to reduce nesting
-- Prefer simple conditionals over nested ternary operators
-- Group related code together and separate concerns
+- 関数は焦点を絞り、妥当な認知的複雑性の限界内に収める
+- 複雑な条件は、適切に命名されたboolean変数に抽出する
+- ネストを減らすためにアーリーリターンを使用する
+- ネストした三項演算子よりもシンプルな条件分岐を優先する
+- 関連するコードをまとめ、関心事を分離する
 
-### Security
+### セキュリティ
 
-- Add `rel="noopener"` when using `target="_blank"` on links
-- Avoid `dangerouslySetInnerHTML` unless absolutely necessary
-- Don't use `eval()` or assign directly to `document.cookie`
-- Validate and sanitize user input
+- リンクで`target="_blank"`を使用する際は`rel="noopener"`を追加する
+- 絶対に必要な場合を除き`dangerouslySetInnerHTML`を避ける
+- `eval()`を使用せず、`document.cookie`に直接代入しない
+- ユーザー入力を検証およびサニタイズする
 
-### Performance
+### パフォーマンス
 
-- Avoid spread syntax in accumulators within loops
-- Use top-level regex literals instead of creating them in loops
-- Prefer specific imports over namespace imports
-- Avoid barrel files (index files that re-export everything)
-- Use proper image components (e.g., Next.js `<Image>`) over `<img>` tags
+- ループ内のアキュムレータでスプレッド構文を避ける
+- ループ内で正規表現を作成するのではなく、トップレベルの正規表現リテラルを使用する
+- 名前空間インポートよりも特定のインポートを優先する
+- バレルファイル(すべてを再エクスポートするインデックスファイル)を避ける
+- `<img>`タグよりも適切な画像コンポーネント(例:Next.jsの`<Image>`)を使用する
 
-### Framework-Specific Guidance
+### フレームワーク固有のガイダンス
 
 **Next.js:**
-- Use Next.js `<Image>` component for images
-- Use `next/head` or App Router metadata API for head elements
-- Use Server Components for async data fetching instead of async Client Components
+- 画像にはNext.jsの`<Image>`コンポーネントを使用する
+- head要素には`next/head`またはApp Router metadata APIを使用する
+- 非同期のClient Componentsではなく、Server Componentsを非同期データフェッチに使用する
 
 **React 19+:**
-- Use ref as a prop instead of `React.forwardRef`
+- `React.forwardRef`ではなく、refをpropsとして使用する
 
 **Solid/Svelte/Vue/Qwik:**
-- Use `class` and `for` attributes (not `className` or `htmlFor`)
+- `className`や`htmlFor`ではなく、`class`と`for`属性を使用する
 
 ---
 
-## Testing
+## テスト
 
-- Write assertions inside `it()` or `test()` blocks
-- Avoid done callbacks in async tests - use async/await instead
-- Don't use `.only` or `.skip` in committed code
-- Keep test suites reasonably flat - avoid excessive `describe` nesting
+- `it()`または`test()`ブロック内にアサーションを記述する
+- 非同期テストでdoneコールバックを避ける - 代わりにasync/awaitを使用する
+- コミットされたコードで`.only`や`.skip`を使用しない
+- テストスイートを適度にフラットに保つ - 過度な`describe`のネストを避ける
 
-## When Biome Can't Help
+## Biomeが対応できないこと
 
-Biome's linter will catch most issues automatically. Focus your attention on:
+Biomeのリンターはほとんどの問題を自動的にキャッチします。以下に注意を向けてください:
 
-1. **Business logic correctness** - Biome can't validate your algorithms
-2. **Meaningful naming** - Use descriptive names for functions, variables, and types
-3. **Architecture decisions** - Component structure, data flow, and API design
-4. **Edge cases** - Handle boundary conditions and error states
-5. **User experience** - Accessibility, performance, and usability considerations
-6. **Documentation** - Add comments for complex logic, but prefer self-documenting code
+1. **ビジネスロジックの正確性** - Biomeはアルゴリズムを検証できない
+2. **意味のある命名** - 関数、変数、型に説明的な名前を使用する
+3. **アーキテクチャの決定** - コンポーネント構造、データフロー、API設計
+4. **エッジケース** - 境界条件とエラー状態を処理する
+5. **ユーザーエクスペリエンス** - アクセシビリティ、パフォーマンス、ユーザビリティの考慮
+6. **ドキュメント** - 複雑なロジックにはコメントを追加するが、自己文書化されたコードを優先する
 
 ---
 
-Most formatting and common issues are automatically fixed by Biome. Run `npx ultracite fix` before committing to ensure compliance.
+ほとんどのフォーマットと一般的な問題はBiomeによって自動的に修正されます。コミット前に`pnpm ultracite fix`を実行してコンプライアンスを確保してください。

@@ -1,65 +1,173 @@
-import Image from "next/image";
+import { ArcticButton } from "./components/arctic-button";
+import { CodeBlock } from "./components/code-block";
+import { FrostedHeader } from "./components/frosted-header";
+import { GlassCard } from "./components/glass-card";
+import { PolarSectionHeader } from "./components/polar-section-header";
 
 export default function Home() {
+  const exampleCode = `import { GlassCard } from './components/GlassCard';
+
+export function Example() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image
-          alt="Next.js logo"
-          className="dark:invert"
-          height={20}
-          priority
-          src="/next.svg"
-          width={100}
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs font-semibold text-3xl text-black leading-10 tracking-tight dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg text-zinc-600 leading-8 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <GlassCard title="Beautiful Card">
+      <p>Antarctic-inspired design with subtle glass effects</p>
+    </GlassCard>
+  );
+}`;
+
+  return (
+    <div className="min-h-screen">
+      {/* Header */}
+      <FrostedHeader
+        links={[
+          { label: "Articles", href: "#articles" },
+          { label: "About", href: "#about" },
+          { label: "Contact", href: "#contact" },
+        ]}
+        title="Arctic Blog"
+      />
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden px-6 py-24">
+        {/* Background gradient */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[hsl(var(--primary))]/10 via-transparent to-transparent" />
+
+        <div className="relative mx-auto max-w-[1100px]">
+          <div className="animate-fade-in text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-arctic-glass px-4 py-2 text-sm backdrop-blur-sm">
+              <span className="animate-float">🎨</span>
+              <span className="font-medium text-foreground">
+                Modern Design System
+              </span>
+            </div>
+
+            <h1 className="mb-6 font-arctic-heading font-bold text-5xl text-foreground leading-tight md:text-6xl lg:text-7xl">
+              南極をイメージした
+              <br />
+              <span className="bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] bg-clip-text text-transparent">
+                モダンブログテーマ
+              </span>
+            </h1>
+
+            <p className="mx-auto mb-10 max-w-2xl text-foreground/80 text-lg leading-relaxed md:text-xl">
+              Tailwind v4とshadcn/uiをベースにした、
+              <br />
+              氷河のような淡いブルーと控えめなガラス効果が特徴のデザインシステム
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <ArcticButton size="lg" variant="primary">
+                はじめる 🚀
+              </ArcticButton>
+              <ArcticButton href="#features" size="lg" variant="secondary">
+                詳しく見る
+              </ArcticButton>
+            </div>
+          </div>
+
+          {/* Floating decorative elements */}
+          <div className="pointer-events-none absolute top-20 left-10 h-64 w-64 animate-float rounded-full bg-gradient-to-br from-[hsl(var(--primary))]/20 to-[hsl(var(--secondary))]/20 blur-3xl" />
+          <div
+            className="pointer-events-none absolute right-10 bottom-10 h-96 w-96 animate-float rounded-full bg-gradient-to-br from-[hsl(var(--secondary))]/20 to-[hsl(var(--primary))]/20 blur-3xl"
+            style={{ animationDelay: "1s" }}
+          />
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="px-6 py-20" id="features">
+        <div className="mx-auto max-w-[1100px]">
+          <PolarSectionHeader subtitle="デザインシステムの特徴">
+            主な機能
+          </PolarSectionHeader>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <GlassCard delay={0} title="ガラスエフェクト">
+              <p className="text-foreground/70 leading-relaxed">
+                控えめなglassmorphismで、読みやすさを保ちながら洗練された見た目を実現
+              </p>
+            </GlassCard>
+
+            <GlassCard delay={100} title="ダークモード対応">
+              <p className="text-foreground/70 leading-relaxed">
+                ライト・ダーク・システム設定の3つのテーマをサポート
+              </p>
+            </GlassCard>
+
+            <GlassCard delay={200} title="アクセシビリティ">
+              <p className="text-foreground/70 leading-relaxed">
+                WCAG AA基準に準拠した色のコントラストとフォーカス表示
+              </p>
+            </GlassCard>
+
+            <GlassCard delay={300} title="モダンな技術">
+              <p className="text-foreground/70 leading-relaxed">
+                Tailwind v4のCSS First機能を活用した最新のスタイリング
+              </p>
+            </GlassCard>
+
+            <GlassCard delay={400} title="美しいタイポグラフィ">
+              <p className="text-foreground/70 leading-relaxed">
+                Inter Tight、Chivo、JetBrains Monoによる洗練されたフォント構成
+              </p>
+            </GlassCard>
+
+            <GlassCard delay={500} title="レスポンシブ">
+              <p className="text-foreground/70 leading-relaxed">
+                モバイルからデスクトップまで、全デバイスで美しく表示
+              </p>
+            </GlassCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Code Example Section */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-[1100px]">
+          <PolarSectionHeader subtitle="実装は驚くほどシンプル">
+            コード例
+          </PolarSectionHeader>
+
+          <div className="mt-12">
+            <CodeBlock code={exampleCode} filename="components/Example.tsx" />
+          </div>
+
+          <div className="mt-8 text-center">
+            <ArcticButton variant="ghost">ドキュメントを見る →</ArcticButton>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-[1100px]">
+          <GlassCard className="text-center">
+            <div className="space-y-6 py-8">
+              <h2 className="font-arctic-heading font-bold text-3xl text-foreground md:text-4xl">
+                今すぐ始めましょう
+              </h2>
+              <p className="mx-auto max-w-2xl text-foreground/70 text-lg">
+                Arctic Blog Themeを使って、美しく読みやすいブログを作成できます
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <ArcticButton variant="primary">GitHub で見る</ArcticButton>
+                <ArcticButton variant="secondary">
+                  スキルをダウンロード
+                </ArcticButton>
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t px-6 py-12">
+        <div className="mx-auto max-w-[1100px] text-center">
+          <p className="text-foreground/60 text-sm">
+            Designed with 🐧 using Arctic Blog Theme
           </p>
         </div>
-        <div className="flex flex-col gap-4 font-medium text-base sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Image
-              alt="Vercel logomark"
-              className="dark:invert"
-              height={16}
-              src="/vercel.svg"
-              width={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-black/[.08] border-solid px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }

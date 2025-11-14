@@ -1,26 +1,132 @@
+/* Arctic Blog Theme - Modern Antarctic-inspired Design System */
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Theme Variables - shadcn/ui approach */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Shadcn/UI Base Variables */
+    --radius: 0.625rem;
+
+    /* Arctic Theme - Light Mode (HSL format) */
+    --background: 192 50% 95%;
+    --foreground: 210 60% 12%;
+    --surface: 188 100% 98%;
+    --primary: 188 50% 63%;
+    --primary-foreground: 188 100% 98%;
+    --secondary: 182 60% 78%;
+    --secondary-foreground: 210 60% 12%;
+    --accent: 11 100% 67%;
+    --accent-foreground: 210 60% 12%;
+    --muted: 186 40% 88%;
+    --muted-foreground: 210 40% 40%;
+    --border: 184 25% 82%;
+    --input: 184 25% 82%;
+    --ring: 188 50% 63%;
+
+    /* Glass Effect */
+    --glass: 188 100% 98% / 0.6;
+    --glass-border: 0 0% 100% / 0.14;
+
+    /* Typography */
+    --font-sans:
+      var(--font-inter-tight), "IBM Plex Sans JP", ui-sans-serif, system-ui,
+      sans-serif;
+    --font-heading:
+      var(--font-chivo), var(--font-inter-tight), ui-sans-serif, system-ui,
+      sans-serif;
+    --font-mono:
+      var(--font-jetbrains-mono), ui-monospace, "Cascadia Code",
+      "Source Code Pro", Menlo, Consolas, monospace;
+
+    /* Border Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 1.25rem;
+    --radius-lg: 1.75rem;
+  }
+
+  .dark {
+    /* Arctic Theme - Dark Mode (HSL format) */
+    --background: 206 40% 9%;
+    --foreground: 195 100% 97%;
+    --surface: 206 35% 14%;
+    --primary: 191 48% 57%;
+    --primary-foreground: 195 100% 97%;
+    --secondary: 182 50% 78%;
+    --secondary-foreground: 195 100% 97%;
+    --accent: 11 100% 70%;
+    --accent-foreground: 195 100% 97%;
+    --muted: 204 20% 17%;
+    --muted-foreground: 195 60% 60%;
+    --border: 202 25% 25%;
+    --input: 202 25% 25%;
+    --ring: 191 48% 57%;
+
+    /* Glass Effect */
+    --glass: 206 35% 14% / 0.45;
+    --glass-border: 0 0% 100% / 0.14;
+  }
+
+  /* Base Styles */
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Arctic Theme Utility Classes */
+@layer utilities {
+  /* Glass Effect */
+  .bg-arctic-glass {
+    background: hsl(var(--glass));
+  }
+
+  .border-arctic-glass {
+    border-color: hsl(var(--glass-border));
+  }
+
+  /* Shadows */
+  .shadow-arctic-soft {
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.06);
+  }
+
+  .shadow-arctic-medium {
+    box-shadow: 0 4px 20px rgb(0 0 0 / 0.1);
+  }
+
+  .shadow-arctic-frosted {
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
+  }
+
+  /* Border Radius */
+  .rounded-arctic-sm {
+    border-radius: var(--radius-sm);
+  }
+
+  .rounded-arctic-md {
+    border-radius: var(--radius-md);
+  }
+
+  .rounded-arctic-lg {
+    border-radius: var(--radius-lg);
+  }
+
+  /* Typography */
+  .font-arctic-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-arctic-mono {
+    font-family: var(--font-mono);
+  }
 }

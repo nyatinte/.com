@@ -1,4 +1,6 @@
 {
+  "typescript.tsserver.nodePath": "./node_modules/typescript/lib",
+  "typescript.experimental.useTsgo": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"

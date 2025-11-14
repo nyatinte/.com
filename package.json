@@ -1,5 +1,9 @@
 {
-  "name": "my-app",
+  "name": "nyatinte.com",
+  "author": {
+    "name": "nyatinte",
+    "email": "takumi.062757@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {

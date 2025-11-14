@@ -1,3 +1,6 @@
 {
-  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"]
+  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
+  "files": {
+    "includes": ["**", "!.claude"]
+  }
 }

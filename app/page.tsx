@@ -1,7 +1,7 @@
 import { ArcticButton } from "./components/arctic-button";
 import { CodeBlock } from "./components/code-block";
-import { FrostedHeader } from "./components/frosted-header";
 import { GlassCard } from "./components/glass-card";
+import { FrostedHeader } from "./components/header";
 import { PolarSectionHeader } from "./components/polar-section-header";
 
 export default function Home() {
@@ -30,7 +30,7 @@ export function Example() {
       {/* Hero Section */}
       <section className="relative overflow-hidden px-6 py-24">
         {/* Background gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[hsl(var(--primary))]/10 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-[hsl(var(--primary))]/10 via-transparent to-transparent" />
 
         <div className="relative mx-auto max-w-[1100px]">
           <div className="animate-fade-in text-center">
@@ -44,7 +44,7 @@ export function Example() {
             <h1 className="mb-6 font-arctic-heading font-bold text-5xl text-foreground leading-tight md:text-6xl lg:text-7xl">
               南極をイメージした
               <br />
-              <span className="bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] bg-clip-text text-transparent">
                 モダンブログテーマ
               </span>
             </h1>
@@ -59,16 +59,16 @@ export function Example() {
               <ArcticButton size="lg" variant="primary">
                 はじめる 🚀
               </ArcticButton>
-              <ArcticButton href="#features" size="lg" variant="secondary">
-                詳しく見る
+              <ArcticButton asChild size="lg" variant="secondary">
+                <a href="#features">詳しく見る</a>
               </ArcticButton>
             </div>
           </div>
 
           {/* Floating decorative elements */}
-          <div className="pointer-events-none absolute top-20 left-10 h-64 w-64 animate-float rounded-full bg-gradient-to-br from-[hsl(var(--primary))]/20 to-[hsl(var(--secondary))]/20 blur-3xl" />
+          <div className="pointer-events-none absolute top-20 left-10 h-64 w-64 animate-float rounded-full bg-linear-to-br from-[hsl(var(--primary))]/20 to-[hsl(var(--secondary))]/20 blur-3xl" />
           <div
-            className="pointer-events-none absolute right-10 bottom-10 h-96 w-96 animate-float rounded-full bg-gradient-to-br from-[hsl(var(--secondary))]/20 to-[hsl(var(--primary))]/20 blur-3xl"
+            className="pointer-events-none absolute right-10 bottom-10 h-96 w-96 animate-float rounded-full bg-linear-to-br from-[hsl(var(--secondary))]/20 to-[hsl(var(--primary))]/20 blur-3xl"
             style={{ animationDelay: "1s" }}
           />
         </div>

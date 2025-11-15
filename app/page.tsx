@@ -1,4 +1,4 @@
-import { ArcticButton } from "./components/arctic-button";
+import { Button } from "@/components/ui/button";
 import { CodeBlock } from "./components/code-block";
 import { GlassCard } from "./components/glass-card";
 import { FrostedHeader } from "./components/header";
@@ -56,12 +56,12 @@ export function Example() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <ArcticButton size="lg" variant="primary">
+              <Button size="lg" variant="primary">
                 はじめる 🚀
-              </ArcticButton>
-              <ArcticButton asChild size="lg" variant="secondary">
+              </Button>
+              <Button asChild size="lg" variant="secondary">
                 <a href="#features">詳しく見る</a>
-              </ArcticButton>
+              </Button>
             </div>
           </div>
 
@@ -133,7 +133,7 @@ export function Example() {
           </div>
 
           <div className="mt-8 text-center">
-            <ArcticButton variant="ghost">ドキュメントを見る →</ArcticButton>
+            <Button variant="ghost">ドキュメントを見る →</Button>
           </div>
         </div>
       </section>
@@ -150,10 +150,8 @@ export function Example() {
                 Arctic Blog Themeを使って、美しく読みやすいブログを作成できます
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <ArcticButton variant="primary">GitHub で見る</ArcticButton>
-                <ArcticButton variant="secondary">
-                  スキルをダウンロード
-                </ArcticButton>
+                <Button variant="primary">GitHub で見る</Button>
+                <Button variant="secondary">スキルをダウンロード</Button>
               </div>
             </div>
           </GlassCard>

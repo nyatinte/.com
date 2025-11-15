@@ -45,6 +45,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@typescript/native-preview": "7.0.0-dev.20251114.1",
+    "@vitejs/plugin-react": "^5.1.1",
     "@vitest/browser-playwright": "4.0.9",
     "@vitest/coverage-v8": "4.0.9",
     "lefthook": "^2.0.3",

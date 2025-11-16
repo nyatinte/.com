@@ -132,27 +132,6 @@ Card h3: 1.5rem
 
 ---
 
-## 🏷️ Logo & Wordmark
-
-**ロゴタイプ:** タイトル自体がロゴとして機能
-
-```tsx
-<h1 className="font-heading font-bold">
-  <span className="text-orange">◆</span>
-  {' '}
-  <span className="text-accent-primary">Nyatinte Blog</span>
-</h1>
-```
-
-**使用ルール:**
-- ロゴタイプは常に左寄せ
-- 最小サイズ: 1.5rem
-- 周囲に十分な余白を確保
-- アクセント記号「◆」は常にorange (`#D08770`)
-- タイトルは常にaccent-primary (`#88C0D0`)
-
----
-
 ## 🎭 Tone & Voice
 
 ### カジュアルかつ専門的
@@ -169,83 +148,6 @@ Card h3: 1.5rem
 - 過度に謙遜的・自虐的な表現
 - マーケティング的な誇張
 - 上から目線の専門用語の羅列
-
----
-
-## 🧩 UI Components
-
-### Buttons
-
-**Primary Button**
-```tsx
-<button className="
-  bg-accent-primary text-background-primary
-  px-6 py-3 rounded-lg
-  font-heading font-semibold
-  transition-all duration-300 ease-in-out
-  hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent-secondary
-">
-  Primary Action
-</button>
-```
-
-**Secondary Button**
-```tsx
-<button className="
-  bg-transparent text-accent-primary
-  border-2 border-accent-primary
-  px-6 py-3 rounded-lg
-  font-heading font-semibold
-  transition-all duration-300 ease-in-out
-  hover:bg-accent-primary hover:text-background-primary
-">
-  Secondary Action
-</button>
-```
-
-### Cards
-
-**基本スタイル**
-```tsx
-<div className="
-  bg-background-secondary
-  border border-border
-  rounded-xl p-6
-  transition-all duration-300 ease-in-out
-  hover:-translate-y-1 hover:shadow-xl
-  hover:border-accent-primary
-  relative
-  overflow-hidden
-  before:absolute before:left-0 before:top-0 before:bottom-0
-  before:w-1 before:bg-gradient-to-b before:from-orange before:to-accent-primary
-  before:opacity-0 hover:before:opacity-100
-  before:transition-opacity before:duration-300
-">
-  {/* Card Content */}
-</div>
-```
-
-**左アクセントライン**
-- Hoverで表示される4px幅のグラデーションライン
-- orange (`#D08770`) → accent-primary (`#88C0D0`) のグラデーション
-
-### Links
-
-```tsx
-<a className="
-  text-accent-primary
-  transition-all duration-300
-  hover:text-accent-secondary hover:underline
-  visited:text-accent-primary
-">
-  Link Text
-</a>
-```
-
-**使用ルール:**
-- デフォルト: accent-primary (`#88C0D0`)
-- Hover: accent-secondaryで明るく + アンダーライン
-- 訪問済み: 色変化なし（一貫性重視）
 
 ---
 
@@ -410,7 +312,6 @@ animation-delay: 0.1s, 0.2s, 0.3s...
 - [ ] アニメーションが控えめ（0.3s ease）
 - [ ] ダークテーマに最適化
 - [ ] アクセシビリティ要件を満たす（コントラスト比）
-- [ ] ロゴタイプの使用ルールに準拠
 
 ---
 
@@ -420,45 +321,12 @@ When you create or modify frontend components for Nyatinte Blog:
 
 1. **Always use the Nord-inspired color palette** - background-primary for backgrounds, text-emphasis for main text, accent-primary for links and CTAs
 2. **Apply correct typography** - Poppins for headings (font-heading), Lora for body text (font-body)
-3. **Implement the logo correctly** - Use `◆` in orange followed by "Nyatinte Blog" in accent-primary
-4. **Add hover effects** - All interactive elements should have translateY(-2px ~ -5px), shadow, and color changes
-5. **Use proper spacing** - 6rem between sections, 2.5rem gap for grids
-6. **Keep animations subtle** - 0.3s ease transitions
-7. **Ensure dark theme compatibility** - All components must work on dark backgrounds
-8. **Apply card hover effects** - Left gradient accent line (orange → accent-primary) on hover
-9. **Follow semantic color naming** - Use background-*, text-*, accent-*, status-* naming convention
-10. **Maintain brand consistency** - Casual yet professional tone, educational content
-
-### Example Component Pattern
-
-```tsx
-export function BlogCard({ title, excerpt, category, date }) {
-  return (
-    <article className="
-      bg-background-secondary border border-border rounded-xl p-6
-      transition-all duration-300 ease-in-out
-      hover:-translate-y-1 hover:shadow-xl hover:border-accent-primary
-      relative overflow-hidden
-      before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1
-      before:bg-gradient-to-b before:from-orange before:to-accent-primary
-      before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
-    ">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="bg-accent-primary/20 text-accent-primary px-3 py-1 rounded-full text-sm font-heading">
-          {category}
-        </span>
-        <time className="text-text-secondary text-sm">{date}</time>
-      </div>
-      <h3 className="font-heading text-2xl font-bold text-emphasis mb-3 hover:text-accent-primary transition-colors">
-        {title}
-      </h3>
-      <p className="font-body text-text-primary leading-relaxed">
-        {excerpt}
-      </p>
-    </article>
-  )
-}
-```
+3. **Add hover effects** - All interactive elements should have translateY(-2px ~ -5px), shadow, and color changes
+4. **Use proper spacing** - 6rem between sections, 2.5rem gap for grids
+5. **Keep animations subtle** - 0.3s ease transitions
+6. **Ensure dark theme compatibility** - All components must work on dark backgrounds
+7. **Follow semantic color naming** - Use background-*, text-*, accent-*, status-* naming convention
+8. **Maintain brand consistency** - Casual yet professional tone, educational content
 
 Remember: This is a **dark-themed tech blog** with a Nord-inspired aesthetic. All designs should feel clean, modern, and professional while maintaining the cool, arctic atmosphere of the brand.
 

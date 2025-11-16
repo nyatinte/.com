@@ -1,175 +1,469 @@
 ---
 name: frontend-design
-description: Apply brand-consistent design guidelines when creating UI components, styling, layouts, or working with design systems. Use when building frontend components, implementing designs, or discussing visual/UX decisions. Ensures adherence to the penguin-themed blog's soft, transparent, and approachable aesthetic.
+description: Apply brand-consistent design guidelines when creating UI components, styling, layouts, or working with design systems. Use when building frontend components, implementing designs, or discussing visual/UX decisions. Ensures adherence to the Nyatinte Blog's Nord-inspired dark theme with Polar Night backgrounds and Frost accents.
 ---
 
-# Frontend Design Skill
+# Frontend Design Skill - Nyatinte Blog
 
-このスキルは、ブログのフロントエンド開発における**デザインガイドライン**と**実装方針**を提供します。
+このスキルは、Nyatinte Blogのフロントエンド開発における**ブランドガイドライン**を提供します。
 
-## 🎨 デザインコンセプト
+---
 
-### 対象ユーザー
-- 技術系の記事を読むエンジニア層
-- シンプルで読みやすく、無駄のないレイアウトを好むユーザー
-- 優しい雰囲気のビジュアルが苦手ではないライト層
+## 🎯 Brand Identity
 
-### ブランドイメージ
-> **優しいペンギンのアイコンを中心に、ほんのりとした透明感と柔らかい曲線で構築された、技術読者に寄り添う静かなブログ空間。**
+**Name:** Nyatinte Blog
+**Tagline:** モダンテクノロジーの最前線を追う
+**Positioning:** 北極圏のように澄み切った視点で、AI・クラウド・Web開発の最新トレンドと実践的な知見を届けるテックブログ
 
-**3つの核となる印象:**
-1. 「落ち着いているのに可愛い」
-2. 「親しみやすいけれど技術ブログとして信頼できる」
-3. 「シンプルなのに記憶に残る」
+---
 
-## 🌈 ブランディング原則
+## 🎨 Color Palette
 
-### 1. 柔らかさとクリア感の両立
-- 淡い色調と親しみやすさをベースにする
-- ガラスの透明感を感じる軽さ（backdrop-filter: blur(4px-8px)）
-- **記事の可読性を最優先** - 本文背景には透明効果を使わない
+### Primary Colors
 
-### 2. 優しい曲線
-- border-radius: 8px-16px（カードサイズに応じて）
-- ボタン: 6px-12px
-- 大きなセクション: 16px-24px
+**Background (Polar Night)**
+```
+#2E3440 - background-primary (メイン背景)
+#3B4252 - background-secondary (セカンダリ背景)
+#434C5E - background-elevated (カード背景)
+#4C566A - border (ボーダー・区切り線)
+```
 
-### 3. 自然なニュアンス
-- 主色: 淡いブルー系・グリーン系
-- 補色: 白とグレー
-- 余白を十分に確保
-- 冷たすぎず暖かすぎない中間の温度感
+**Text (Snow Storm)**
+```
+#D8DEE9 - text-secondary (セカンダリテキスト)
+#E5E9F0 - text-primary (通常テキスト)
+#ECEFF4 - text-emphasis (メインテキスト・強調)
+```
 
-### 4. 静かに集中できるタイポグラフィ
-- 本文: 16px-18px, line-height: 1.7-1.8
-- 見出し: font-weight: 600-700
-- letter-spacing: わずかに広め（0.01em-0.02em）
+**Accent (Frost)**
+```
+#8FBCBB - accent-secondary (セカンダリアクセント)
+#88C0D0 - accent-primary (メインアクセント・リンク)
+#81A1C1 - accent-gradient (グラデーション用)
+#5E81AC - accent-dark (ダークアクセント)
+```
 
-## 🎨 カラーパレット
+### Semantic Colors (Aurora)
 
-詳細は [COLOR_PALETTE.md](COLOR_PALETTE.md) を参照。
+```
+#BF616A - error (エラー・重要)
+#D08770 - orange (オレンジアクセント)
+#EBCB8B - warning (警告・ハイライト)
+#A3BE8C - success (成功・グリーン)
+#B48EAD - purple (パープルアクセント)
+```
 
-**プライマリーカラー:**
-- Primary Blue: #A8D5E2
-- Primary Green: #B8E6D5
+### 使用ルール
+
+**Tailwind CSS設定例:**
+```js
+// tailwind.config.js
+colors: {
+  background: {
+    primary: '#2E3440',
+    secondary: '#3B4252',
+    elevated: '#434C5E',
+  },
+  text: {
+    secondary: '#D8DEE9',
+    primary: '#E5E9F0',
+    emphasis: '#ECEFF4',
+  },
+  accent: {
+    secondary: '#8FBCBB',
+    primary: '#88C0D0',
+    gradient: '#81A1C1',
+    dark: '#5E81AC',
+  },
+  status: {
+    error: '#BF616A',
+    orange: '#D08770',
+    warning: '#EBCB8B',
+    success: '#A3BE8C',
+    purple: '#B48EAD',
+  },
+}
+```
+
+---
+
+## 📝 Typography
+
+### フォントファミリー
+
+**見出し: Poppins (太字)**
+```css
+font-family: 'Poppins', Arial, sans-serif;
+font-weight: 600-700;
+```
+使用場所: h1-h6, ナビゲーション, ボタン
+
+**本文: Lora (読みやすさ重視)**
+```css
+font-family: 'Lora', Georgia, serif;
+font-weight: 400-500;
+```
+使用場所: 記事本文, 説明文
+
+### サイズ指針
+
+```
+Hero h1: 4rem (mobile: 2.5rem)
+Section h2: 2.5rem
+Card h3: 1.5rem
+本文: 1rem
+メタ情報: 0.85-0.95rem
+行間: 1.7
+```
+
+### 実装例
+
+```tsx
+// 見出し
+<h1 className="font-heading text-4xl md:text-6xl font-bold text-emphasis">
+
+// 本文
+<p className="font-body text-base text-primary leading-relaxed">
+
+// メタ情報
+<span className="text-sm text-secondary">
+```
+
+---
+
+## 🏷️ Logo & Wordmark
+
+**ロゴタイプ:** タイトル自体がロゴとして機能
+
+```tsx
+<h1 className="font-heading font-bold">
+  <span className="text-orange">◆</span>
+  {' '}
+  <span className="text-accent-primary">Nyatinte Blog</span>
+</h1>
+```
 
 **使用ルール:**
-- 背景: ホワイト or ライトグレー
-- カード: ホワイト + 軽い影 or プライマリーカラー（alpha 0.1-0.2）
-- アクセント: プライマリーブルー/グリーン
-- テキスト: ダークグレー（本文）, ミディアムグレー（補助）
+- ロゴタイプは常に左寄せ
+- 最小サイズ: 1.5rem
+- 周囲に十分な余白を確保
+- アクセント記号「◆」は常にorange (`#D08770`)
+- タイトルは常にaccent-primary (`#88C0D0`)
 
-## 📐 レイアウト原則
+---
 
-**余白（Spacing）:**
-- 基本単位: 4px
-- セクション間: 64px-96px
-- カード間: 24px-32px
-- コンポーネント内: 16px-24px
+## 🎭 Tone & Voice
 
-**グリッドシステム:**
-- コンテナ最大幅: 1200px-1280px
-- 記事本文最大幅: 720px-768px（可読性優先）
-- サイドバー: 280px-320px
+### カジュアルかつ専門的
+- 「です・ます」調を基本としつつ、堅苦しくない
+- 技術用語は正確に、説明は分かりやすく
+- 読者に語りかけるような親しみやすさ
 
-**ブレークポイント:**
-- Mobile: < 640px
-- Tablet: 640px - 1024px
-- Desktop: > 1024px
+### 教育的で先進的
+- 最新トレンドを追いながら、本質的な理解を重視
+- 実践的なコード例や具体的なユースケースを提供
+- 「なぜ」を説明し、深い理解を促す
 
-## 🧩 コンポーネント設計
+### 避けるべき表現
+- 過度に謙遜的・自虐的な表現
+- マーケティング的な誇張
+- 上から目線の専門用語の羅列
 
-詳細は [COMPONENTS.md](COMPONENTS.md) を参照。
+---
 
-### カード
-```
-- 背景: 白 or 淡いプライマリーカラー（alpha 0.05-0.1）
-- 影: 0 1px 3px rgba(0,0,0,0.1)
-- border-radius: 12px-16px
-- padding: 24px-32px
-- ホバー: translateY(-2px) + 影強化
-```
+## 🧩 UI Components
 
-### ボタン
-```
-- プライマリー: プライマリーブルー背景 + ホワイトテキスト
-- セカンダリー: ホワイト背景 + プライマリーブルーボーダー
-- border-radius: 8px-12px
-- padding: 12px 24px
-```
+### Buttons
 
-### ナビゲーション
-```
-- 背景: 半透明ホワイト + backdrop-filter: blur(8px)
-- 高さ: 64px-72px
-- 固定位置（sticky）
+**Primary Button**
+```tsx
+<button className="
+  bg-accent-primary text-background-primary
+  px-6 py-3 rounded-lg
+  font-heading font-semibold
+  transition-all duration-300 ease-in-out
+  hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent-secondary
+">
+  Primary Action
+</button>
 ```
 
-## ✨ インタラクションとアニメーション
+**Secondary Button**
+```tsx
+<button className="
+  bg-transparent text-accent-primary
+  border-2 border-accent-primary
+  px-6 py-3 rounded-lg
+  font-heading font-semibold
+  transition-all duration-300 ease-in-out
+  hover:bg-accent-primary hover:text-background-primary
+">
+  Secondary Action
+</button>
+```
 
-**原則:**
-- 控えめに、しかし感じられるように
-- すべてのトランジション: 200ms-300ms
-- easing: ease-in-out または cubic-bezier(0.4, 0, 0.2, 1)
+### Cards
 
-**推奨:**
-- ホバー: opacity, transform, box-shadow
-- ページ遷移: フェードイン（300ms）
-- モーダル: スケール + フェード（250ms）
+**基本スタイル**
+```tsx
+<div className="
+  bg-background-secondary
+  border border-border
+  rounded-xl p-6
+  transition-all duration-300 ease-in-out
+  hover:-translate-y-1 hover:shadow-xl
+  hover:border-accent-primary
+  relative
+  overflow-hidden
+  before:absolute before:left-0 before:top-0 before:bottom-0
+  before:w-1 before:bg-gradient-to-b before:from-orange before:to-accent-primary
+  before:opacity-0 hover:before:opacity-100
+  before:transition-opacity before:duration-300
+">
+  {/* Card Content */}
+</div>
+```
 
-**避けるべき:**
-- 過度な回転やスピン
-- 長すぎるアニメーション（> 500ms）
-- 突然の動き
+**左アクセントライン**
+- Hoverで表示される4px幅のグラデーションライン
+- orange (`#D08770`) → accent-primary (`#88C0D0`) のグラデーション
 
-## 📱 レスポンシブデザイン
+### Links
 
-- **モバイルファースト**: 基本スタイルはモバイル向け
-- **タッチ対応**: タップターゲット最小 44px × 44px
-- **ホバー効果**: モバイルでは @media (hover: hover) で制御
+```tsx
+<a className="
+  text-accent-primary
+  transition-all duration-300
+  hover:text-accent-secondary hover:underline
+  visited:text-accent-primary
+">
+  Link Text
+</a>
+```
 
-## ♿ アクセシビリティ
+**使用ルール:**
+- デフォルト: accent-primary (`#88C0D0`)
+- Hover: accent-secondaryで明るく + アンダーライン
+- 訪問済み: 色変化なし（一貫性重視）
 
-詳細は [ACCESSIBILITY.md](ACCESSIBILITY.md) を参照。
+---
 
-**重要な要件:**
-- 色のコントラスト: WCAG AA準拠（4.5:1以上）
-- キーボードナビゲーション: すべてのインタラクティブ要素に focus-visible
-- セマンティックHTML: 正しい見出し階層とランドマーク要素
-- スクリーンリーダー: 適切なalt属性とaria-label
+## 📐 Layout Principles
 
-## 🛠️ 実装ツール
+### 余白を活かす
 
-- **Tailwind CSS + twx**: スタイリング
-- **Storybook**: コンポーネント独立開発
-- **Next.js Image**: 画像最適化
-- **Atomic Design**: コンポーネント構成
+```
+セクション間: 6rem (24px × 6 = 96px)
+カード間: 2.5rem gap
+テキスト行間: 1.7
+コンテナpadding: 1.5rem (mobile) → 3rem (desktop)
+```
 
-## 📋 実装チェックリスト
+### グリッドシステム
+
+```tsx
+<div className="
+  container mx-auto max-w-screen-xl px-6
+  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+  gap-10
+">
+  {/* Grid Items */}
+</div>
+```
+
+**仕様:**
+- 最大幅: 1200px
+- カラム: repeat(auto-fit, minmax(320-350px, 1fr))
+- レスポンシブブレイクポイント: 768px
+
+### 視覚的階層
+
+- グラデーションは控えめに（背景のみ）
+- アニメーションは subtle（0.3s ease）
+- ホバー効果で interactivity を示す
+- 重要な要素は accent-primary で強調
+- セクションの区切りは border カラーで
+
+---
+
+## 📄 Content Guidelines
+
+### 記事構成
+
+1. **魅力的なタイトル** - 具体的で検索可能
+2. **メタ情報** - カテゴリタグ、日付
+3. **導入部** - 何を学べるかを明確に
+4. **本文** - コード例、図解、実践的なヒント
+5. **まとめ** - 要点の再確認、次のステップ
+
+### カテゴリタグ
+
+**主要カテゴリ:**
+```tsx
+// AI・機械学習
+<span className="bg-accent-primary/20 text-accent-primary px-3 py-1 rounded-full text-sm">
+  AI・機械学習
+</span>
+
+// Web開発
+<span className="bg-orange/20 text-orange px-3 py-1 rounded-full text-sm">
+  Web開発
+</span>
+
+// クラウド
+<span className="bg-accent-dark/20 text-accent-dark px-3 py-1 rounded-full text-sm">
+  クラウド
+</span>
+
+// デザイン
+<span className="bg-success/20 text-success px-3 py-1 rounded-full text-sm">
+  デザイン
+</span>
+```
+
+---
+
+## ✨ Animation & Interaction
+
+### 基本原則
+
+**すべてのトランジション:**
+```css
+transition: all 0.3s ease;
+```
+
+**Hover時の動き:**
+```css
+transform: translateY(-2px) ~ translateY(-5px);
+```
+
+**フェードイン:**
+```css
+opacity: 0 → 1;
+transition: opacity 0.3s ease;
+```
+
+**段階的表示:**
+```css
+animation-delay: 0.1s, 0.2s, 0.3s...
+```
+
+### 使用アニメーション
+
+```tsx
+// ページロード時のフェードインアップ
+<div className="
+  opacity-0 translate-y-4
+  animate-[fadeInUp_0.6s_ease-out_forwards]
+  [animation-delay:0.1s]
+">
+  Content
+</div>
+
+// Hoverトランスフォーム
+<div className="
+  transition-all duration-300 ease-in-out
+  hover:-translate-y-1 hover:shadow-xl
+">
+  Interactive Element
+</div>
+
+// スムーススクロール
+<html className="scroll-smooth">
+```
+
+---
+
+## ✅ Do's and Don'ts
+
+### ✅ Do
+
+- セマンティックなカラー命名を使用（background-primary, text-emphasis, accent-primary）
+- 十分な余白とクリーンなレイアウト（6rem セクション間）
+- Poppins（見出し）とLora（本文）の組み合わせを厳守
+- 微細なアニメーションとホバー効果（0.3s ease）
+- コントラストを考慮したアクセシビリティ（WCAG AA準拠）
+- ダークテーマを前提としたデザイン
+
+### ❌ Don't
+
+- 定義外の色を追加（Nordパレット外の色は使用禁止）
+- 過度な装飾や複雑なグラデーション
+- フォントの混在（Poppins + Lora の2種類まで）
+- 派手すぎるアニメーション（> 0.5s）
+- 狭すぎる行間や余白（line-height < 1.5）
+- ライトテーマの使用（ダークテーマのみ）
+
+---
+
+## 🛠️ Implementation Checklist
 
 新規コンポーネント作成時は以下を確認:
 
-- [ ] カラーパレットに準拠
-- [ ] 適切なborder-radius（8px-16px）
-- [ ] 余白が統一（4pxベース）
-- [ ] ホバー/フォーカス状態を定義
-- [ ] レスポンシブ対応（モバイル・タブレット・デスクトップ）
-- [ ] アクセシビリティ要件を満たす（WCAG AA）
-- [ ] アニメーションが控えめ（200ms-300ms）
-- [ ] Storybookにストーリー追加
-- [ ] セマンティックHTMLを使用
+- [ ] Nordカラーパレットに準拠（Polar Night, Snow Storm, Frost, Aurora）
+- [ ] 見出しはPoppins、本文はLoraを使用
+- [ ] 適切なborder-radius（8px-12px）
+- [ ] 余白が統一（セクション間6rem、カード間2.5rem）
+- [ ] ホバー効果を定義（translateY, shadow, color変更）
+- [ ] レスポンシブ対応（768pxブレイクポイント）
+- [ ] アニメーションが控えめ（0.3s ease）
+- [ ] ダークテーマに最適化
+- [ ] アクセシビリティ要件を満たす（コントラスト比）
+- [ ] ロゴタイプの使用ルールに準拠
 
-## Instructions for Claude
+---
 
-When you create or modify frontend components:
+## 📚 Instructions for Claude
 
-1. **Always apply brand colors** from the color palette
-2. **Use soft border-radius** (8px-16px) for all UI elements
-3. **Ensure proper spacing** using 4px base units
-4. **Add hover/focus states** with smooth transitions
-5. **Make it responsive** (mobile-first approach)
-6. **Check accessibility** (contrast, keyboard nav, semantic HTML)
-7. **Keep animations subtle** (200ms-300ms)
-8. **Reference supporting docs** when you need detailed guidance
+When you create or modify frontend components for Nyatinte Blog:
 
-Remember: This design system prioritizes **readability, accessibility, and a calm user experience** while maintaining a soft, approachable aesthetic.
+1. **Always use the Nord-inspired color palette** - background-primary for backgrounds, text-emphasis for main text, accent-primary for links and CTAs
+2. **Apply correct typography** - Poppins for headings (font-heading), Lora for body text (font-body)
+3. **Implement the logo correctly** - Use `◆` in orange followed by "Nyatinte Blog" in accent-primary
+4. **Add hover effects** - All interactive elements should have translateY(-2px ~ -5px), shadow, and color changes
+5. **Use proper spacing** - 6rem between sections, 2.5rem gap for grids
+6. **Keep animations subtle** - 0.3s ease transitions
+7. **Ensure dark theme compatibility** - All components must work on dark backgrounds
+8. **Apply card hover effects** - Left gradient accent line (orange → accent-primary) on hover
+9. **Follow semantic color naming** - Use background-*, text-*, accent-*, status-* naming convention
+10. **Maintain brand consistency** - Casual yet professional tone, educational content
+
+### Example Component Pattern
+
+```tsx
+export function BlogCard({ title, excerpt, category, date }) {
+  return (
+    <article className="
+      bg-background-secondary border border-border rounded-xl p-6
+      transition-all duration-300 ease-in-out
+      hover:-translate-y-1 hover:shadow-xl hover:border-accent-primary
+      relative overflow-hidden
+      before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1
+      before:bg-gradient-to-b before:from-orange before:to-accent-primary
+      before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
+    ">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="bg-accent-primary/20 text-accent-primary px-3 py-1 rounded-full text-sm font-heading">
+          {category}
+        </span>
+        <time className="text-text-secondary text-sm">{date}</time>
+      </div>
+      <h3 className="font-heading text-2xl font-bold text-emphasis mb-3 hover:text-accent-primary transition-colors">
+        {title}
+      </h3>
+      <p className="font-body text-text-primary leading-relaxed">
+        {excerpt}
+      </p>
+    </article>
+  )
+}
+```
+
+Remember: This is a **dark-themed tech blog** with a Nord-inspired aesthetic. All designs should feel clean, modern, and professional while maintaining the cool, arctic atmosphere of the brand.
+
+---
+
+**Version:** 1.0
+**Last Updated:** 2025-11-16
+**Platform:** Web Blog Only

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Apply brand-consistent design guidelines when creating UI components, styling, layouts, or working with design systems. Use when building frontend components, implementing designs, or discussing visual/UX decisions. Ensures adherence to the Nyatinte Blog's Nord-inspired dark theme with Polar Night backgrounds and Frost accents.
+description: UIコンポーネント、スタイリング、レイアウト、デザインシステムを作成する際にブランド一貫性のあるデザインガイドラインを適用する。フロントエンドコンポーネントの構築、デザイン実装、ビジュアル/UXに関する議論の際に使用。Nyatinte BlogのNord風ダークテーマ（Polar Night背景とFrostアクセント）への準拠を保証する。
 ---
 
 # Frontend Design Skill - Nyatinte Blog
@@ -9,19 +9,19 @@ description: Apply brand-consistent design guidelines when creating UI component
 
 ---
 
-## 🎯 Brand Identity
+## 🎯 ブランドアイデンティティ
 
-**Name:** Nyatinte Blog
-**Tagline:** モダンテクノロジーの最前線を追う
-**Positioning:** 北極圏のように澄み切った視点で、AI・クラウド・Web開発の最新トレンドと実践的な知見を届けるテックブログ
+**名前:** Nyatinte Blog
+**タグライン:** モダンテクノロジーの最前線を追う
+**ポジショニング:** 北極圏のように澄み切った視点で、AI・クラウド・Web開発の最新トレンドと実践的な知見を届けるテックブログ
 
 ---
 
-## 🎨 Color Palette
+## 🎨 カラーパレット
 
-### Primary Colors
+### プライマリカラー
 
-**Background (Polar Night)**
+**背景 (Polar Night)**
 ```
 #2E3440 - background-primary (メイン背景)
 #3B4252 - background-secondary (セカンダリ背景)
@@ -29,14 +29,14 @@ description: Apply brand-consistent design guidelines when creating UI component
 #4C566A - border (ボーダー・区切り線)
 ```
 
-**Text (Snow Storm)**
+**テキスト (Snow Storm)**
 ```
 #D8DEE9 - text-secondary (セカンダリテキスト)
 #E5E9F0 - text-primary (通常テキスト)
 #ECEFF4 - text-emphasis (メインテキスト・強調)
 ```
 
-**Accent (Frost)**
+**アクセント (Frost)**
 ```
 #8FBCBB - accent-secondary (セカンダリアクセント)
 #88C0D0 - accent-primary (メインアクセント・リンク)
@@ -44,7 +44,7 @@ description: Apply brand-consistent design guidelines when creating UI component
 #5E81AC - accent-dark (ダークアクセント)
 ```
 
-### Semantic Colors (Aurora)
+### セマンティックカラー (Aurora)
 
 ```
 #BF616A - error (エラー・重要)
@@ -88,7 +88,7 @@ colors: {
 
 ---
 
-## 📝 Typography
+## 📝 タイポグラフィ
 
 ### フォントファミリー
 
@@ -132,7 +132,7 @@ Card h3: 1.5rem
 
 ---
 
-## 🎭 Tone & Voice
+## 🎭 トーン&ボイス
 
 ### カジュアルかつ専門的
 - 「です・ます」調を基本としつつ、堅苦しくない
@@ -151,7 +151,7 @@ Card h3: 1.5rem
 
 ---
 
-## 📐 Layout Principles
+## 📐 レイアウト原則
 
 ### 余白を活かす
 
@@ -170,7 +170,7 @@ Card h3: 1.5rem
   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
   gap-10
 ">
-  {/* Grid Items */}
+  {/* グリッドアイテム */}
 </div>
 ```
 
@@ -189,7 +189,7 @@ Card h3: 1.5rem
 
 ---
 
-## 📄 Content Guidelines
+## 📄 コンテンツガイドライン
 
 ### 記事構成
 
@@ -226,7 +226,7 @@ Card h3: 1.5rem
 
 ---
 
-## ✨ Animation & Interaction
+## ✨ アニメーション&インタラクション
 
 ### 基本原則
 
@@ -260,7 +260,7 @@ animation-delay: 0.1s, 0.2s, 0.3s...
   animate-[fadeInUp_0.6s_ease-out_forwards]
   [animation-delay:0.1s]
 ">
-  Content
+  コンテンツ
 </div>
 
 // Hoverトランスフォーム
@@ -268,7 +268,7 @@ animation-delay: 0.1s, 0.2s, 0.3s...
   transition-all duration-300 ease-in-out
   hover:-translate-y-1 hover:shadow-xl
 ">
-  Interactive Element
+  インタラクティブな要素
 </div>
 
 // スムーススクロール
@@ -277,9 +277,9 @@ animation-delay: 0.1s, 0.2s, 0.3s...
 
 ---
 
-## ✅ Do's and Don'ts
+## ✅ やるべきこと・やってはいけないこと
 
-### ✅ Do
+### ✅ やるべきこと
 
 - セマンティックなカラー命名を使用（background-primary, text-emphasis, accent-primary）
 - 十分な余白とクリーンなレイアウト（6rem セクション間）
@@ -288,7 +288,7 @@ animation-delay: 0.1s, 0.2s, 0.3s...
 - コントラストを考慮したアクセシビリティ（WCAG AA準拠）
 - ダークテーマを前提としたデザイン
 
-### ❌ Don't
+### ❌ やってはいけないこと
 
 - 定義外の色を追加（Nordパレット外の色は使用禁止）
 - 過度な装飾や複雑なグラデーション
@@ -299,7 +299,7 @@ animation-delay: 0.1s, 0.2s, 0.3s...
 
 ---
 
-## 🛠️ Implementation Checklist
+## 🛠️ 実装チェックリスト
 
 新規コンポーネント作成時は以下を確認:
 
@@ -315,23 +315,23 @@ animation-delay: 0.1s, 0.2s, 0.3s...
 
 ---
 
-## 📚 Instructions for Claude
+## 📚 Claude向けの指示
 
-When you create or modify frontend components for Nyatinte Blog:
+Nyatinte Blogのフロントエンドコンポーネントを作成・修正する際は、以下を必ず守ること：
 
-1. **Always use the Nord-inspired color palette** - background-primary for backgrounds, text-emphasis for main text, accent-primary for links and CTAs
-2. **Apply correct typography** - Poppins for headings (font-heading), Lora for body text (font-body)
-3. **Add hover effects** - All interactive elements should have translateY(-2px ~ -5px), shadow, and color changes
-4. **Use proper spacing** - 6rem between sections, 2.5rem gap for grids
-5. **Keep animations subtle** - 0.3s ease transitions
-6. **Ensure dark theme compatibility** - All components must work on dark backgrounds
-7. **Follow semantic color naming** - Use background-*, text-*, accent-*, status-* naming convention
-8. **Maintain brand consistency** - Casual yet professional tone, educational content
+1. **Nord風カラーパレットを常に使用する** - 背景にはbackground-primary、本文にはtext-emphasis、リンクとCTAにはaccent-primaryを使う
+2. **正しいタイポグラフィを適用する** - 見出しはPoppins（font-heading）、本文はLora（font-body）を使う
+3. **ホバー効果を追加する** - すべてのインタラクティブ要素にtranslateY(-2px ~ -5px)、影、色の変化を付ける
+4. **適切な余白を使用する** - セクション間は6rem、グリッドは2.5rem gap
+5. **アニメーションは控えめに** - 0.3s easeのトランジションにする
+6. **ダークテーマ互換性を確保する** - すべてのコンポーネントはダーク背景で動作すること
+7. **セマンティックなカラー命名に従う** - background-*、text-*、accent-*、status-*の命名規則を使う
+8. **ブランドの一貫性を保つ** - カジュアルかつ専門的なトーン、教育的なコンテンツを心がける
 
-Remember: This is a **dark-themed tech blog** with a Nord-inspired aesthetic. All designs should feel clean, modern, and professional while maintaining the cool, arctic atmosphere of the brand.
+忘れないこと：これは**Nord風の美学を持つダークテーマのテックブログ**です。すべてのデザインは、クリーンでモダンかつプロフェッショナルでありながら、ブランドの持つ冷涼で北極圏的な雰囲気を保つ必要があります。
 
 ---
 
-**Version:** 1.0
-**Last Updated:** 2025-11-16
-**Platform:** Web Blog Only
+**バージョン:** 1.0
+**最終更新:** 2025-11-16
+**プラットフォーム:** Webブログのみ

@@ -7,14 +7,17 @@ const md = createMarkdownExit({
   typographer: true,
 });
 
+const WHITESPACE_REGEX = /\s+/;
+const MARKDOWN_SYMBOLS_REGEX = /[#*`[\]]/g;
+
 const calculateReadingTime = (content: string): number => {
   const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
+  const words = content.trim().split(WHITESPACE_REGEX).length;
   return Math.ceil(words / wordsPerMinute);
 };
 
 const generateExcerpt = (content: string, length = 160): string => {
-  const text = content.replace(/[#*`[\]]/g, "").trim();
+  const text = content.replace(MARKDOWN_SYMBOLS_REGEX, "").trim();
   return text.length > length ? `${text.slice(0, length)}...` : text;
 };
 

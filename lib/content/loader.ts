@@ -10,6 +10,8 @@ export type MarkdownFile = {
   filepath: string;
 };
 
+const MD_EXTENSION_REGEX = /\.md$/;
+
 export const loadMarkdownFiles = async (
   dir: string
 ): Promise<MarkdownFile[]> => {
@@ -24,7 +26,7 @@ export const loadMarkdownFiles = async (
 
       return {
         filename,
-        slug: filename.replace(/\.md$/, ""),
+        slug: filename.replace(MD_EXTENSION_REGEX, ""),
         frontmatter: data,
         content,
         filepath,

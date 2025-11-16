@@ -12,7 +12,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
   const posts = await Promise.all(
     files.map(async (file) => {
       const frontmatter = PostFrontmatterSchema.parse(file.frontmatter);
-      return processMarkdown(file.content, frontmatter, file.slug);
+      return await processMarkdown(file.content, frontmatter, file.slug);
     })
   );
 

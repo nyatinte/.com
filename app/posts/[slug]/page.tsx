@@ -19,7 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
-  if (!post) return {};
+  if (!post) {
+    return {};
+  }
 
   return {
     title: post.title,
@@ -65,8 +67,10 @@ export default async function PostPage({ params }: Props) {
         )}
       </header>
 
+      {/* markdown-exitで処理済みのHTMLを表示 */}
       <div
         className="prose prose-lg dark:prose-invert max-w-none"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: markdown-exitによるサニタイズ済みコンテンツ
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </article>

@@ -17,6 +17,61 @@ description: UIコンポーネント、スタイリング、レイアウト、�
 
 ---
 
+## 🏗️ デザインシステムの基盤
+
+このプロジェクトは **shadcn/ui** の思想を強く受けています。
+
+### shadcn/uiの原則
+
+- **コンポーネントの所有権**: npm installではなく、コードをプロジェクトに直接コピーして完全にカスタマイズ可能にする
+- **Tailwind CSSの活用**: ユーティリティファーストのアプローチで、shadcnスタイルのTailwind使用法に準拠
+- **アクセシビリティ重視**: Radix UIプリミティブをベースにしたアクセシブルなコンポーネント
+- **TypeScript対応**: 型安全性を重視した実装
+- **一貫性のあるAPI**: 予測可能で使いやすいコンポーネントインターフェース
+
+### Tailwindの使用方法
+
+このプロジェクトでは、**shadcnスタイルのTailwind使用法**に準拠します：
+
+```tsx
+// ✅ shadcnスタイル - セマンティックなクラス名の組み合わせ
+<button className="bg-accent-primary text-background-primary px-6 py-3 rounded-lg font-heading font-semibold transition-all duration-300 hover:bg-accent-secondary hover:-translate-y-0.5">
+
+// ✅ 複雑なバリアントはcn()ユーティリティで管理
+import { cn } from '@/lib/utils'
+
+<div className={cn(
+  "bg-background-secondary border border-border rounded-xl p-6",
+  isActive && "border-accent-primary",
+  isDisabled && "opacity-50 cursor-not-allowed"
+)}>
+
+// ❌ インラインスタイルやCSSモジュールは避ける
+<div style={{ backgroundColor: '#88C0D0' }}>
+```
+
+### デザイントークンの管理
+
+Tailwind設定でセマンティックなカラー名を定義し、一貫性を保ちます：
+
+```js
+// tailwind.config.js
+theme: {
+  extend: {
+    colors: {
+      background: {
+        primary: '#2E3440',
+        secondary: '#3B4252',
+        elevated: '#434C5E',
+      },
+      // ... 他のカラー定義
+    },
+  },
+}
+```
+
+---
+
 ## 🎨 カラーパレット
 
 ### プライマリカラー
@@ -313,8 +368,12 @@ animation-delay: 0.1s, 0.2s, 0.3s...
 - [ ] Nord風の美学を保つ（クリーン、モダン、プロフェッショナル、冷涼で北極圏的な雰囲気）
 - [ ] 過度な装飾や複雑なグラデーションを使用していない
 
+### デザインシステム
+- [ ] shadcnスタイルのTailwind使用法に準拠（セマンティックなクラス名、cn()ユーティリティ）
+- [ ] インラインスタイルやCSSモジュールを使用していない
+- [ ] デザイントークンをTailwind設定で管理
+
 ---
 
 **バージョン:** 1.0
 **最終更新:** 2025-11-16
-**プラットフォーム:** Webブログのみ

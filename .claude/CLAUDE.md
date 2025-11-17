@@ -126,4 +126,4 @@ Biomeのリンターはほとんどの問題を自動的にキャッチします
 
 ## Skills
 
-- frontend-design
+- frontend-design: UIコンポーネント作成・デザイン実装時に参照

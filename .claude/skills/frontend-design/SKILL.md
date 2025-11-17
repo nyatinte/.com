@@ -33,42 +33,13 @@ description: UIコンポーネント、スタイリング、レイアウト、�
 
 このプロジェクトでは、**shadcnスタイルのTailwind使用法**に準拠します：
 
-```tsx
-// ✅ shadcnスタイル - セマンティックなクラス名の組み合わせ
-<button className="bg-accent-primary text-background-primary px-6 py-3 rounded-lg font-heading font-semibold transition-all duration-300 hover:bg-accent-secondary hover:-translate-y-0.5">
-
-// ✅ 複雑なバリアントはcn()ユーティリティで管理
-import { cn } from '@/lib/utils'
-
-<div className={cn(
-  "bg-background-secondary border border-border rounded-xl p-6",
-  isActive && "border-accent-primary",
-  isDisabled && "opacity-50 cursor-not-allowed"
-)}>
-
-// ❌ インラインスタイルやCSSモジュールは避ける
-<div style={{ backgroundColor: '#88C0D0' }}>
-```
+- セマンティックなクラス名の組み合わせ
+- 複雑なバリアントはcn()ユーティリティで管理
+- インラインスタイルやCSSモジュールは避ける
 
 ### デザイントークンの管理
 
-Tailwind設定でセマンティックなカラー名を定義し、一貫性を保ちます：
-
-```js
-// tailwind.config.js
-theme: {
-  extend: {
-    colors: {
-      background: {
-        primary: '#2E3440',
-        secondary: '#3B4252',
-        elevated: '#434C5E',
-      },
-      // ... 他のカラー定義
-    },
-  },
-}
-```
+Tailwind v4のCSS設定でセマンティックなカラー名を定義し、一貫性を保ちます。
 
 ---
 
@@ -109,38 +80,6 @@ theme: {
 #B48EAD - purple (パープルアクセント)
 ```
 
-### 使用ルール
-
-**Tailwind CSS設定例:**
-```js
-// tailwind.config.js
-colors: {
-  background: {
-    primary: '#2E3440',
-    secondary: '#3B4252',
-    elevated: '#434C5E',
-  },
-  text: {
-    secondary: '#D8DEE9',
-    primary: '#E5E9F0',
-    emphasis: '#ECEFF4',
-  },
-  accent: {
-    secondary: '#8FBCBB',
-    primary: '#88C0D0',
-    gradient: '#81A1C1',
-    dark: '#5E81AC',
-  },
-  status: {
-    error: '#BF616A',
-    orange: '#D08770',
-    warning: '#EBCB8B',
-    success: '#A3BE8C',
-    purple: '#B48EAD',
-  },
-}
-```
-
 ---
 
 ## 📝 タイポグラフィ
@@ -172,19 +111,6 @@ Card h3: 1.5rem
 行間: 1.7
 ```
 
-### 実装例
-
-```tsx
-// 見出し
-<h1 className="font-heading text-4xl md:text-6xl font-bold text-emphasis">
-
-// 本文
-<p className="font-body text-base text-primary leading-relaxed">
-
-// メタ情報
-<span className="text-sm text-secondary">
-```
-
 ---
 
 ## 📐 レイアウト原則
@@ -199,16 +125,6 @@ Card h3: 1.5rem
 ```
 
 ### グリッドシステム
-
-```tsx
-<div className="
-  container mx-auto max-w-screen-xl px-6
-  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-  gap-10
-">
-  {/* グリッドアイテム */}
-</div>
-```
 
 **仕様:**
 - 最大幅: 1200px
@@ -238,27 +154,10 @@ Card h3: 1.5rem
 ### カテゴリタグ
 
 **主要カテゴリ:**
-```tsx
-// AI・機械学習
-<span className="bg-accent-primary/20 text-accent-primary px-3 py-1 rounded-full text-sm">
-  AI・機械学習
-</span>
-
-// Web開発
-<span className="bg-orange/20 text-orange px-3 py-1 rounded-full text-sm">
-  Web開発
-</span>
-
-// クラウド
-<span className="bg-accent-dark/20 text-accent-dark px-3 py-1 rounded-full text-sm">
-  クラウド
-</span>
-
-// デザイン
-<span className="bg-success/20 text-success px-3 py-1 rounded-full text-sm">
-  デザイン
-</span>
-```
+- AI・機械学習: accent-primary
+- Web開発: orange
+- クラウド: accent-dark
+- デザイン: success
 
 ---
 
@@ -285,30 +184,6 @@ transition: opacity 0.3s ease;
 **段階的表示:**
 ```css
 animation-delay: 0.1s, 0.2s, 0.3s...
-```
-
-### 使用アニメーション
-
-```tsx
-// ページロード時のフェードインアップ
-<div className="
-  opacity-0 translate-y-4
-  animate-[fadeInUp_0.6s_ease-out_forwards]
-  [animation-delay:0.1s]
-">
-  コンテンツ
-</div>
-
-// Hoverトランスフォーム
-<div className="
-  transition-all duration-300 ease-in-out
-  hover:-translate-y-1 hover:shadow-xl
-">
-  インタラクティブな要素
-</div>
-
-// スムーススクロール
-<html className="scroll-smooth">
 ```
 
 ---

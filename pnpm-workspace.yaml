@@ -1,0 +1,16 @@
+# pnpm workspace configuration
+# See: https://pnpm.io/ja/pnpm-workspace_yaml
+
+packages:
+  # Root package
+  - "."
+  # Future packages can be added here
+  # - "packages/*"
+  # - "apps/*"
+
+# Security: Delay installation of newly published packages
+# This reduces the risk of installing compromised packages, as malicious releases
+# are typically discovered and removed within an hour.
+# Setting: 1440 minutes = 24 hours
+# See: https://pnpm.io/ja/settings#minimumreleaseage
+minimumReleaseAge: 1440

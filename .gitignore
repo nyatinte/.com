@@ -56,3 +56,6 @@ storybook-static
 
 # git worktree
 .worktree
+
+# OpenNext
+.open-next

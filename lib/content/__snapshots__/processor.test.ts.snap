@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`processMarkdown > 正常系: マークダウンをHTMLに変換できる 1`] = `
+"<h1>Test Content</h1>
+<p>This is a <strong>test</strong> post with some <em>markdown</em> content.</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+"
+`;
+
+exports[`processMarkdown > 正常系: 様々なマークダウン機能のスナップショット 1`] = `
+{
+  "content": "
+# Heading
+
+This is a paragraph with **bold**, *italic*, and [link](https://example.com).
+
+Visit https://example.com for auto-linkify.
+
+Text with <strong>HTML</strong> tags.
+
+This is a "quote" and it's nice.
+
+- Item 1
+- Item 2
+",
+  "date": 2024-01-15T00:00:00.000Z,
+  "description": "Test various markdown features",
+  "draft": false,
+  "excerpt": "Heading
+
+This is a paragraph with bold, italic, and link(https://example.com).
+
+Visit https://example.com for auto-linkify.
+
+Text with <strong>HTML</strong> tag...",
+  "html": "<h1>Heading</h1>
+<p>This is a paragraph with <strong>bold</strong>, <em>italic</em>, and <a href="https://example.com">link</a>.</p>
+<p>Visit <a href="https://example.com">https://example.com</a> for auto-linkify.</p>
+<p>Text with <strong>HTML</strong> tags.</p>
+<p>This is a “quote” and it’s nice.</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+</ul>
+",
+  "readingTime": 1,
+  "slug": "comprehensive-test",
+  "tags": [
+    "test",
+  ],
+  "title": "Comprehensive Test Post",
+  "url": "/posts/comprehensive-test",
+}
+`;

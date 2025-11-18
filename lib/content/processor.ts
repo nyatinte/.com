@@ -1,4 +1,6 @@
 import { createMarkdownExit } from "markdown-exit";
+import { generateExcerpt } from "./processor/excerpt";
+import { calculateReadingTime } from "./processor/reading-time";
 import type { Post, PostFrontmatter } from "./schema";
 
 const md = createMarkdownExit({
@@ -6,20 +8,6 @@ const md = createMarkdownExit({
   linkify: true,
   typographer: true,
 });
-
-const WHITESPACE_REGEX = /\s+/;
-const MARKDOWN_SYMBOLS_REGEX = /[#*`[\]]/g;
-
-const calculateReadingTime = (content: string): number => {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(WHITESPACE_REGEX).length;
-  return Math.ceil(words / wordsPerMinute);
-};
-
-const generateExcerpt = (content: string, length = 160): string => {
-  const text = content.replace(MARKDOWN_SYMBOLS_REGEX, "").trim();
-  return text.length > length ? `${text.slice(0, length)}...` : text;
-};
 
 export const processMarkdown = async (
   content: string,

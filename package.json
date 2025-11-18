@@ -51,6 +51,7 @@
     "@typescript/native-preview": "7.0.0-dev.20251114.1",
     "@vitest/browser-playwright": "4.0.9",
     "@vitest/coverage-v8": "4.0.9",
+    "fs-fixture": "^2.11.0",
     "lefthook": "^2.0.3",
     "playwright": "^1.56.1",
     "storybook": "^10.0.7",

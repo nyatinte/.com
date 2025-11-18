@@ -87,6 +87,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 4.0.9
         version: 4.0.9(@vitest/browser@4.0.9(vite@7.2.2(@types/node@20.19.23)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.20.6))(vitest@4.0.9))(vitest@4.0.9)
+      fs-fixture:
+        specifier: ^2.11.0
+        version: 2.11.0
       lefthook:
         specifier: ^2.0.3
         version: 2.0.3
@@ -1542,6 +1545,10 @@ packages:
   foreground-child@3.3.1:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
+
+  fs-fixture@2.11.0:
+    resolution: {integrity: sha512-elzOu5Ru04qPSBT344kngxx1bpq3RbpznEyjTcn+NHI2nvzwDcGt2zde/a6LBmF5SJtgSYBGHAPnel6S1IefeA==}
+    engines: {node: '>=18.0.0'}
 
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -3834,6 +3841,8 @@ snapshots:
     dependencies:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
+
+  fs-fixture@2.11.0: {}
 
   fsevents@2.3.2:
     optional: true

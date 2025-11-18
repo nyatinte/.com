@@ -56,8 +56,5 @@ storybook-static
 # generated content
 .generated/
 
-# git worktree
-.worktree
-
 # OpenNext
 .open-next

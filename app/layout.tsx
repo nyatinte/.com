@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Chivo, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./components/theme-provider";
+import { ThemeProvider } from "./components/ui/theme-provider";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",

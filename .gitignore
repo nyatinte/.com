@@ -46,6 +46,8 @@ next-env.d.ts
 
 # claude code
 .claude/settings.local.json
+PR.md
+pr.md
 
 # storybook
 *storybook.log

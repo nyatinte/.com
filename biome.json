@@ -1,6 +1,6 @@
 {
   "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
   "files": {
-    "includes": ["**", "!.claude"]
+    "includes": ["**", "!.claude", "!wrangler.jsonc"]
   }
 }

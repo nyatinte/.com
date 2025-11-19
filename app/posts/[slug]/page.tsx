@@ -70,7 +70,7 @@ export default async function PostPage({ params }: Props) {
       {/* markdown-exitで処理済みのHTMLを表示 */}
       <div
         className="prose prose-lg dark:prose-invert max-w-none"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: markdown-exitによるサニタイズ済みコンテンツ
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: markdown-exitによるHTMLエスケープ済みコンテンツ（html: falseで生HTMLは無効化）
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </article>

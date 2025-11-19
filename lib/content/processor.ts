@@ -4,7 +4,7 @@ import { calculateReadingTime } from "./processor/reading-time";
 import type { Post, PostFrontmatter } from "./schema";
 
 const md = createMarkdownExit({
-  html: true,
+  html: false,
   linkify: true,
   typographer: true,
 });

@@ -40,7 +40,7 @@ Text with <strong>HTML</strong> tag...",
   "html": "<h1>Heading</h1>
 <p>This is a paragraph with <strong>bold</strong>, <em>italic</em>, and <a href="https://example.com">link</a>.</p>
 <p>Visit <a href="https://example.com">https://example.com</a> for auto-linkify.</p>
-<p>Text with <strong>HTML</strong> tags.</p>
+<p>Text with &lt;strong&gt;HTML&lt;/strong&gt; tags.</p>
 <p>This is a “quote” and it’s nice.</p>
 <ul>
 <li>Item 1</li>

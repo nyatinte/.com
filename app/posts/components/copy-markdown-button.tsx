@@ -11,12 +11,20 @@ export function CopyMarkdownButton({ markdown }: CopyMarkdownButtonProps) {
   const [copied, setCopied] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  const handleCopy = () => {
-    startTransition(async () => {
+  const handleCopy = async () => {
+    try {
       await navigator.clipboard.writeText(markdown);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+      startTransition(() => {
+        setCopied(true);
+      });
+      setTimeout(() => {
+        startTransition(() => {
+          setCopied(false);
+        });
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to copy:", error);
+    }
   };
 
   return (

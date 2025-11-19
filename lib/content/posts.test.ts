@@ -17,7 +17,7 @@ describe("posts integration", () => {
     expect(posts.length).toBeGreaterThan(0);
 
     for (const post of posts) {
-      expect(post).toEqual(expect.schemaMatching(PostSchema));
+      expect(() => PostSchema.parse(post)).not.toThrow();
     }
   });
 });

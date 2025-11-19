@@ -53,5 +53,8 @@ pr.md
 *storybook.log
 storybook-static
 
+# generated content
+.generated/
+
 # OpenNext
 .open-next

@@ -108,6 +108,7 @@ export default defineConfig({
             ...data,
             slug,
             html: data.content,
+            content: rawMarkdown,
             excerpt: generateExcerpt(rawMarkdown),
             readingTime: calculateReadingTime(rawMarkdown),
             url: `/posts/${slug}`,

@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "#velite": ["./.velite"]
     },
     "strictNullChecks": true
   },

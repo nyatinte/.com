@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllPosts } from "@/lib/content/posts";
+import { posts } from "#velite";
 
 export const metadata: Metadata = {
   title: "Blog Posts",
@@ -8,8 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default async function PostsPage() {
-  const posts = await getAllPosts();
-
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
       <h1 className="mb-8 font-bold text-4xl">Blog Posts</h1>
@@ -24,9 +22,7 @@ export default async function PostsPage() {
             </Link>
 
             <div className="mb-3 flex items-center gap-4 text-muted-foreground text-sm">
-              <time dateTime={post.date.toISOString()}>
-                {post.date.toLocaleDateString("ja-JP")}
-              </time>
+              <time dateTime={post.date}>{post.date}</time>
               <span>•</span>
               <span>{post.readingTime}分で読めます</span>
             </div>

@@ -7,6 +7,10 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+function getPostBySlug(slug: string) {
+  return posts.find((_post) => _post.slug === slug);
+}
+
 export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
@@ -15,7 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = posts.find((_post) => _post.slug === slug);
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return {};
@@ -29,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-  const post = posts.find((_post) => _post.slug === slug);
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -44,7 +48,9 @@ export default async function PostPage({ params }: Props) {
         </div>
 
         <div className="flex items-center gap-4 text-muted-foreground text-sm">
-          <time dateTime={post.date}>{post.date}</time>
+          <time dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString("ja-JP")}
+          </time>
           <span>•</span>
           <span>{post.readingTime}分で読めます</span>
         </div>

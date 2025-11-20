@@ -27,8 +27,7 @@
     "format": "biome format --write .",
     "typecheck": "tsgo --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test:browser": "vitest --config=vitest.browser.config.ts"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.12.0",

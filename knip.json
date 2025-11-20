@@ -4,5 +4,6 @@
     "interface": true,
     "type": true
   },
+  "ignoreDependencies": ["postcss"],
   "tags": ["-lintignore"]
 }

@@ -37,7 +37,7 @@ export const getPostBySlug = async (
   }
 };
 
-export const getPostSlugs = async (): Promise<string[]> => {
+const _getPostSlugs = async (): Promise<string[]> => {
   const files = await fs.readdir(POSTS_DIR);
   return files
     .filter((f) => f.endsWith(".md"))

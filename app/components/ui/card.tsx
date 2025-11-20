@@ -48,7 +48,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
+function _CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -86,7 +86,6 @@ export {
   CardHeader,
   CardFooter,
   CardTitle,
-  CardAction,
   CardDescription,
   CardContent,
 };

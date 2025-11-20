@@ -1,0 +1,43 @@
+name: Issue Metrics
+
+on:
+  # Run every Monday at 9:00 AM JST (00:00 UTC)
+  schedule:
+    - cron: '0 0 * * 1'
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: read
+
+jobs:
+  issue-metrics:
+    name: Generate issue metrics report
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Get dates for last week
+        shell: bash
+        run: |
+          echo "last_week=$(date -d '7 days ago' '+%Y-%m-%d')" >> "$GITHUB_ENV"
+          echo "current_date=$(date '+%Y-%m-%d')" >> "$GITHUB_ENV"
+
+      - name: Run issue-metrics tool
+        uses: github/issue-metrics@v3
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SEARCH_QUERY: 'repo:nyatinte/.com created:${{ env.last_week }}..${{ env.current_date }}'
+          OUTPUT_FILE: issue-metrics.md
+          REPORT_TITLE: 'Weekly Issue Metrics Report'
+
+      - name: Create issue with metrics report
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Weekly Issue Metrics Report - ${{ env.current_date }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          content-filepath: ./issue-metrics.md
+          labels: |
+            metrics
+            automated

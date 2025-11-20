@@ -5,6 +5,7 @@
     "type": true
   },
   "ignoreDependencies": ["postcss"],
-  "ignoreFiles": [".velite/index.d.ts", "velite.config.ts"],
+  "ignoreFiles": [".velite/index.d.ts"],
+  "entry": ["velite.config.ts"],
   "tags": ["-lintignore"]
 }

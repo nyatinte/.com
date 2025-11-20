@@ -22,7 +22,7 @@ bun.lock
 /out/
 
 # velite
-.velite/
+.velite/posts.json
 
 # production
 /build

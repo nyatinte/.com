@@ -21,8 +21,25 @@ export default defineConfig({
         test: {
           name: "unit",
           include: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
-          exclude: ["**/*.stories.tsx", "node_modules/**"],
+          exclude: ["**/*.stories.tsx", "app/**/*.test.tsx", "node_modules/**"],
           environment: "node",
+        },
+      },
+      // Browser tests project
+      {
+        test: {
+          name: "browser",
+          include: ["app/**/*.test.tsx"],
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [
+              {
+                browser: "chromium",
+              },
+            ],
+          },
         },
       },
       // Storybook tests project

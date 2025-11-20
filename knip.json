@@ -4,7 +4,7 @@
     "interface": true,
     "type": true
   },
-  "ignoreDependencies": ["postcss"],
+  "ignoreDependencies": ["postcss", "zod"],
   "ignoreFiles": [".velite/index.d.ts"],
   "entry": ["velite.config.ts"],
   "tags": ["-lintignore"]

@@ -1,10 +1,8 @@
 name: Pull Request Metrics
 
 on:
-  # Run every Monday at 9:00 AM JST (00:00 UTC)
   schedule:
     - cron: '0 0 * * 1'
-  # Allow manual trigger
   workflow_dispatch:
 
 permissions:
@@ -21,8 +19,8 @@ jobs:
       - name: Get dates for last week
         shell: bash
         run: |
-          echo "last_week=$(date -d '7 days ago' '+%Y-%m-%d')" >> "$GITHUB_ENV"
-          echo "current_date=$(date '+%Y-%m-%d')" >> "$GITHUB_ENV"
+          echo "last_week=$(date -d '7 days ago' '+%Y-%m-%d')" >> '$GITHUB_ENV'
+          echo "current_date=$(date '+%Y-%m-%d')" >> '$GITHUB_ENV'
 
       - name: Run issue-metrics tool
         uses: github/issue-metrics@v3

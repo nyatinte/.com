@@ -1,4 +1,4 @@
-name: Issue Metrics
+name: Pull Request Metrics
 
 on:
   # Run every Monday at 9:00 AM JST (00:00 UTC)
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   issue-metrics:
-    name: Generate issue metrics report
+    name: Generate pull request metrics report
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -28,14 +28,14 @@ jobs:
         uses: github/issue-metrics@v3
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEARCH_QUERY: 'repo:nyatinte/.com created:${{ env.last_week }}..${{ env.current_date }}'
+          SEARCH_QUERY: 'repo:nyatinte/.com is:pr created:${{ env.last_week }}..${{ env.current_date }}'
           OUTPUT_FILE: issue-metrics.md
-          REPORT_TITLE: 'Weekly Issue Metrics Report'
+          REPORT_TITLE: 'Weekly Pull Request Metrics Report'
 
       - name: Create issue with metrics report
         uses: peter-evans/create-issue-from-file@v5
         with:
-          title: 'Weekly Issue Metrics Report - ${{ env.current_date }}'
+          title: 'Weekly Pull Request Metrics Report - ${{ env.current_date }}'
           token: ${{ secrets.GITHUB_TOKEN }}
           content-filepath: ./issue-metrics.md
           labels: |

@@ -20,9 +20,13 @@ export default defineConfig({
       {
         test: {
           name: "unit",
-          include: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
+          include: [
+            "**/__tests__/**/*.test.ts",
+            "**/*.test.ts",
+            "**/*.test.tsx",
+          ],
           exclude: ["**/*.stories.tsx", "node_modules/**"],
-          environment: "node",
+          environment: "jsdom",
         },
       },
       // Storybook tests project

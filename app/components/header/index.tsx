@@ -2,7 +2,7 @@
 
 import { HeaderLogo } from "./header-logo";
 import { HeaderNav } from "./header-nav";
-import { ThemeToggleButton } from "./theme-toggle-button";
+import { ThemeSwitcher } from "./theme-switcher";
 
 type FrostedHeaderProps = {
   title: string;
@@ -17,7 +17,7 @@ export function FrostedHeader({ title, links = [] }: FrostedHeaderProps) {
 
         <div className="flex items-center gap-6">
           {links.length > 0 && <HeaderNav links={links} />}
-          <ThemeToggleButton />
+          <ThemeSwitcher />
         </div>
       </nav>
     </header>

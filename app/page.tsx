@@ -1,6 +1,7 @@
 import { Button } from "@/app/components/ui/button";
 import { PostCard } from "@/app/components/ui/post-card";
 import { CodeBlock } from "./components/code-block";
+import { FrostedHeader } from "./components/header";
 
 export default function Home() {
   const exampleCode = `import { PostCard } from '@/app/components/ui/post-card';
@@ -19,32 +20,14 @@ export function Example() {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="border-b px-6 py-4">
-        <div className="mx-auto flex max-w-[1100px] items-center justify-between">
-          <h1 className="font-bold text-xl">Arctic Blog</h1>
-          <nav className="flex gap-6">
-            <a
-              className="text-foreground/80 text-sm transition-colors hover:text-foreground"
-              href="#articles"
-            >
-              Articles
-            </a>
-            <a
-              className="text-foreground/80 text-sm transition-colors hover:text-foreground"
-              href="#about"
-            >
-              About
-            </a>
-            <a
-              className="text-foreground/80 text-sm transition-colors hover:text-foreground"
-              href="#contact"
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <FrostedHeader
+        links={[
+          { label: "Articles", href: "#articles" },
+          { label: "About", href: "#about" },
+          { label: "Contact", href: "#contact" },
+        ]}
+        title="Arctic Blog"
+      />
 
       {/* Hero Section */}
       <section className="px-6 py-24">

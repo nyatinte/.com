@@ -22,7 +22,9 @@ export default async function PostsPage() {
             </Link>
 
             <div className="mb-3 flex items-center gap-4 text-muted-foreground text-sm">
-              <time dateTime={post.date}>{post.date}</time>
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString("ja-JP")}
+              </time>
               <span>•</span>
               <span>{post.readingTime}分で読めます</span>
             </div>

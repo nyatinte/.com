@@ -26,7 +26,6 @@ export default defineConfig({
       },
       // Browser tests project
       {
-        extends: true,
         test: {
           name: "browser",
           include: ["app/**/*.test.tsx"],

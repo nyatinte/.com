@@ -1,5 +1,4 @@
 import { describe, expect, test, vi } from "vitest";
-import { page } from "vitest/browser";
 import { render } from "vitest-browser-react";
 import { Button } from "./button";
 
@@ -8,7 +7,7 @@ describe("Button", () => {
     test("クリックイベントを処理できる", async () => {
       // given
       const handleClick = vi.fn();
-      await render(
+      const { getByRole } = await render(
         <Button
           onClick={() => {
             handleClick();
@@ -17,9 +16,10 @@ describe("Button", () => {
           Click
         </Button>
       );
+      const button = getByRole("button");
 
       // when
-      await page.getByRole("button", { name: "Click" }).click();
+      await button.click();
 
       // then
       expect(handleClick).toHaveBeenCalledTimes(1);

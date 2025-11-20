@@ -20,13 +20,26 @@ export default defineConfig({
       {
         test: {
           name: "unit",
-          include: [
-            "**/__tests__/**/*.test.ts",
-            "**/*.test.ts",
-            "**/*.test.tsx",
-          ],
-          exclude: ["**/*.stories.tsx", "node_modules/**"],
-          environment: "jsdom",
+          include: ["**/*.test.ts"],
+          environment: "node",
+        },
+      },
+      // Browser tests project
+      {
+        extends: true,
+        test: {
+          name: "browser",
+          include: ["app/**/*.test.tsx"],
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [
+              {
+                browser: "chromium",
+              },
+            ],
+          },
         },
       },
       // Storybook tests project

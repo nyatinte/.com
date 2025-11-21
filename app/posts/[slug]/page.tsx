@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/lib/content/posts";
+import { posts } from "#velite";
 import { CopyMarkdownButton } from "../components/copy-markdown-button";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
+function getPostBySlug(slug: string) {
+  return posts.find((_post) => _post.slug === slug);
+}
 
+export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -17,7 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return {};
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -46,8 +48,8 @@ export default async function PostPage({ params }: Props) {
         </div>
 
         <div className="flex items-center gap-4 text-muted-foreground text-sm">
-          <time dateTime={post.date.toISOString()}>
-            {post.date.toLocaleDateString("ja-JP")}
+          <time dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString("ja-JP")}
           </time>
           <span>•</span>
           <span>{post.readingTime}分で読めます</span>

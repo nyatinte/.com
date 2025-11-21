@@ -1,6 +1,7 @@
 pre-commit:
   skip:
     - run: test "$CLAUDECODE" != 1  # Claude Code以外はスキップ
+  parallel: true
   jobs:
     - run: pnpm ultracite fix
       glob:
@@ -12,3 +13,4 @@ pre-commit:
         - '*.jsonc'
         - '*.css'
       stage_fixed: true
+    - run: pnpm typecheck

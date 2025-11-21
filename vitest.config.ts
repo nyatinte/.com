@@ -13,15 +13,14 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react(), viteTsconfigPaths()],
+  plugins: [viteTsconfigPaths(), react()],
   test: {
     projects: [
       // Unit tests project
       {
         test: {
           name: "unit",
-          include: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
-          exclude: ["**/*.stories.tsx", "app/**/*.test.tsx", "node_modules/**"],
+          include: ["**/*.test.ts"],
           environment: "node",
         },
       },

@@ -15,6 +15,10 @@ const dirname =
 export default defineConfig({
   plugins: [react(), viteTsconfigPaths()],
   optimizeDeps: {
+    /**
+     * Vitest 4.x で Storybook のテストが初回実行時に失敗する問題の対策
+     * @see {@link https://github.com/vitest-dev/vitest/issues/8471}
+     */
     include: [
       "@storybook/addon-a11y/preview",
       "@storybook/nextjs-vite",

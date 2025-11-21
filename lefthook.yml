@@ -1,4 +1,6 @@
 pre-commit:
+  skip:
+    - run: test "$CLAUDECODE" != 1  # Claude Code以外はスキップ
   jobs:
     - run: pnpm ultracite fix
       glob:

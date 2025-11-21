@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Chivo, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ui/theme-provider";
+import { ReactGrab } from "./react-grag";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -44,6 +45,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           rel="preconnect"
         />
+        <ReactGrab />
       </head>
       <body
         className={`${interTight.variable} ${chivo.variable} ${jetbrainsMono.variable} antialiased`}

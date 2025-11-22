@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import { Chivo, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans, Unbounded } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ui/theme-provider";
 import { ReactGrab } from "./react-grag";
 
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+const unbounded = Unbounded({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "600", "700"],
   display: "swap",
 });
 
-const chivo = Chivo({
-  variable: "--font-chivo",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -48,7 +48,7 @@ export default function RootLayout({
         <ReactGrab />
       </head>
       <body
-        className={`${interTight.variable} ${chivo.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${unbounded.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

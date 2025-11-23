@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "description": "Automerge minor and patch updates (except for Next.js and related packages)",
+      "matchUpdateTypes": ["minor", "patch"],
+      "excludePackageNames": ["next", "@opennextjs/cloudflare"],
+      "automerge": true
+    }
+  ]
+}

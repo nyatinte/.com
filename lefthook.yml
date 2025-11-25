@@ -13,4 +13,8 @@ pre-commit:
         - '*.jsonc'
         - '*.css'
       stage_fixed: true
+    - run: pnpm textlint:fix
+      glob:
+        - '*.md'
+      stage_fixed: true
     - run: pnpm typecheck

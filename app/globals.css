@@ -236,3 +236,48 @@ pre.shiki {
     }
   }
 }
+
+/* Pagefind Search UI - Arctic Blog Theme Customization */
+.pagefind-ui {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--primary);
+  --pagefind-ui-text: var(--foreground);
+  --pagefind-ui-background: var(--card);
+  --pagefind-ui-border: var(--border);
+  --pagefind-ui-tag: var(--secondary);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 0.75rem;
+  --pagefind-ui-image-border-radius: 0.5rem;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--font-sans);
+}
+
+.pagefind-ui__search-input {
+  @apply bg-background text-foreground placeholder:text-muted-foreground;
+  @apply border-border focus:border-primary focus:ring-2 focus:ring-primary/20;
+  @apply rounded-xl px-5 py-4 text-base;
+}
+
+.pagefind-ui__result {
+  @apply border-border hover:bg-accent/50 rounded-lg transition-colors;
+}
+
+.pagefind-ui__result-link {
+  @apply text-foreground hover:text-primary transition-colors;
+}
+
+.pagefind-ui__result-title {
+  @apply text-foreground font-semibold;
+}
+
+.pagefind-ui__result-excerpt {
+  @apply text-muted-foreground text-sm;
+}
+
+.pagefind-ui__result-tag {
+  @apply bg-secondary text-secondary-foreground rounded-md px-2 py-1 text-xs;
+}
+
+.pagefind-ui__message {
+  @apply text-muted-foreground text-sm;
+}

@@ -2,6 +2,7 @@ import { Button } from "@/app/components/ui/button";
 import { PostCard } from "@/app/components/ui/post-card";
 import { CodeBlock } from "./components/code-block";
 import { FrostedHeader } from "./components/header";
+import { SearchBar } from "./components/search-bar";
 
 export default function Home() {
   const exampleCode = `import { PostCard } from '@/app/components/ui/post-card';
@@ -50,6 +51,11 @@ export function Example() {
             <br />
             氷河のような淡いブルーと控えめなガラス効果が特徴のデザインシステム
           </p>
+
+          {/* 検索バー */}
+          <div className="mb-8 flex justify-center">
+            <SearchBar />
+          </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button size="lg">はじめる 🚀</Button>

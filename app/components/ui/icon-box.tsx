@@ -36,7 +36,7 @@ const Box = twx.div<BoxStyledProps>`
       ? "rounded-full transition-transform duration-500"
       : "rounded-2xl border border-[var(--border-color)] bg-[var(--bg-primary)] shadow-lg transition-colors"}
   ${({ $animate }: BoxStyledProps) => $animate && "group-hover:scale-110"}
-  ${({ $animate, $variant }: BoxStyledProps) => $animate && $variant === "outlined" && "group-hover:border-[#88C0D0]/50"}
+  ${({ $animate, $variant }: BoxStyledProps) => $animate && $variant === "outlined" && "group-hover:border-[var(--color-accent-primary)]/50"}
 `;
 
 export function IconBox({

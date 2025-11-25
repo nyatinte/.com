@@ -15,12 +15,7 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div className="glass-card group rounded-3xl p-10 transition-all duration-500 hover:bg-[var(--bg-primary)]/50">
-      <div
-        className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border-color)] bg-[var(--bg-primary)] shadow-lg transition-colors group-hover:border-[#88C0D0]/50"
-        style={{
-          borderColor: "var(--border-color)",
-        }}
-      >
+      <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border-color)] bg-[var(--bg-primary)] shadow-lg transition-colors group-hover:border-[var(--color-accent-primary)]/50">
         <Icon className="h-8 w-8" style={{ color: iconColor }} />
       </div>
       <h3 className="mb-4 font-bold font-heading text-[var(--text-emphasis)] text-xl">

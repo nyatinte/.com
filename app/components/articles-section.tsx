@@ -45,8 +45,8 @@ export function ArticlesSection() {
         <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="h-px w-8 bg-[#88C0D0]" />
-              <span className="font-mono text-[#88C0D0] text-xs uppercase tracking-widest">
+              <span className="h-px w-8 bg-[var(--color-accent-primary)]" />
+              <span className="font-mono text-[var(--color-accent-primary)] text-xs uppercase tracking-widest">
                 Transmission Log
               </span>
             </div>

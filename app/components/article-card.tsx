@@ -50,22 +50,18 @@ export function ArticleCard({
         <div className="flex flex-grow flex-col p-8">
           <div className="mb-4 flex items-center gap-3 font-mono text-[var(--text-muted)] text-xs">
             <span>{date}</span>
-            <span className="text-[#88C0D0]">{"//"}</span>
+            <span className="text-[var(--color-accent-primary)]">{"//"}</span>
             <span>{readingTime} MIN READ</span>
           </div>
-          <h3
-            className="mb-4 font-bold font-heading text-[var(--text-emphasis)] text-xl leading-snug transition-colors group-hover:text-[#88C0D0]"
-            style={{
-              transitionProperty: "color",
-            }}
-          >
+          <h3 className="mb-4 font-bold font-heading text-[var(--text-emphasis)] text-xl leading-snug transition-colors group-hover:text-[var(--color-accent-primary)]">
             {title}
           </h3>
           <p className="mb-8 line-clamp-3 flex-grow font-body text-[var(--text-secondary)] text-sm leading-relaxed">
             {description}
           </p>
           <div className="mt-auto inline-flex items-center gap-2 font-bold text-[var(--text-emphasis)] text-sm transition-all group-hover:gap-4">
-            READ_ENTRY <ArrowRight className="h-4 w-4 text-[#88C0D0]" />
+            READ_ENTRY{" "}
+            <ArrowRight className="h-4 w-4 text-[var(--color-accent-primary)]" />
           </div>
         </div>
       </article>

@@ -15,7 +15,7 @@ export function FooterLinks() {
         {LINKS.map((link) => (
           <li key={link.label}>
             <a
-              className="transition-colors hover:text-[#88C0D0]"
+              className="transition-colors hover:text-[var(--color-accent-primary)]"
               href={link.href}
             >
               {link.label}

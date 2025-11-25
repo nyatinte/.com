@@ -12,12 +12,12 @@ export function HeroContent() {
       <h1 className="animate-fade-in-up font-bold font-heading text-5xl text-[var(--text-emphasis)] leading-none tracking-tight delay-200 lg:text-7xl">
         ARCTIC
         <br />
-        <span className="bg-gradient-to-r from-[#88C0D0] via-[#8FBCBB] to-[#5E81AC] bg-clip-text text-glow text-transparent">
+        <span className="bg-gradient-to-r from-[var(--color-accent-primary)] via-[#8FBCBB] to-[var(--color-accent-dark)] bg-clip-text text-glow text-transparent">
           FRONTIER
         </span>
       </h1>
 
-      <p className="max-w-md animate-fade-in-up border-[#88C0D0]/30 border-l-2 pl-6 font-body text-[var(--text-secondary)] text-lg leading-relaxed delay-300">
+      <p className="max-w-md animate-fade-in-up border-[var(--color-accent-primary)]/30 border-l-2 pl-6 font-body text-[var(--text-secondary)] text-lg leading-relaxed delay-300">
         北極圏のような静寂と鋭い視点で、AI・クラウド・Web開発の深層を探求するテックジャーナル。
       </p>
 
@@ -31,7 +31,7 @@ export function HeroContent() {
               READ ARTICLES{" "}
               <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
-            <div className="absolute inset-0 z-0 origin-left scale-x-0 transform bg-[#88C0D0] transition-transform duration-300 group-hover:scale-x-100" />
+            <div className="absolute inset-0 z-0 origin-left scale-x-0 transform bg-[var(--color-accent-primary)] transition-transform duration-300 group-hover:scale-x-100" />
           </a>
         </Button>
         <Button

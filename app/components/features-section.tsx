@@ -28,7 +28,7 @@ const features = [
 export function FeaturesSection() {
   return (
     <section className="relative overflow-hidden py-32" id="featured">
-      <div className="absolute inset-0 origin-top-right skew-y-3 scale-110 transform bg-[#5E81AC]/5" />
+      <div className="absolute inset-0 origin-top-right skew-y-3 scale-110 transform bg-[var(--color-accent-dark)]/5" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-20 text-center">

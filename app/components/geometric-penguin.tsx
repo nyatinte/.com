@@ -41,7 +41,10 @@ export function GeometricPenguin() {
         />
 
         {/* Beak/Face */}
-        <path d="M180,130 L220,130 L200,160 Z" fill="#D08770" />
+        <path
+          d="M180,130 L220,130 L200,160 Z"
+          fill="var(--color-status-orange)"
+        />
         <circle cx="180" cy="120" fill="#ECEFF4" r="4" />
         <circle cx="220" cy="120" fill="#ECEFF4" r="4" />
 
@@ -88,7 +91,7 @@ export function GeometricPenguin() {
             x="290"
             y="105"
           />
-          <circle cx="340" cy="95" fill="#A3BE8C" r="3" />
+          <circle cx="340" cy="95" fill="var(--color-status-success)" r="3" />
         </g>
 
         <g

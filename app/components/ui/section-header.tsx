@@ -13,8 +13,8 @@ export function SectionHeader({
     <div className="text-center">
       {label && (
         <div className="mb-4 flex items-center justify-center gap-3">
-          <span className="h-px w-8 bg-[#88C0D0]" />
-          <span className="font-mono text-[#88C0D0] text-xs uppercase tracking-widest">
+          <span className="h-px w-8 bg-[var(--color-accent-primary)]" />
+          <span className="font-mono text-[var(--color-accent-primary)] text-xs uppercase tracking-widest">
             {label}
           </span>
         </div>

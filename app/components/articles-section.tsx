@@ -1,4 +1,5 @@
 import { ArrowRight, Cpu, Layout, Server } from "lucide-react";
+import Link from "next/link";
 import { ArticleCard } from "./article-card";
 
 export function ArticlesSection() {
@@ -54,15 +55,15 @@ export function ArticlesSection() {
               LATEST ENTRIES
             </h2>
           </div>
-          <a
-            className="group flex items-center gap-3 font-mono text-[var(--text-secondary)] text-sm uppercase tracking-wide transition-colors hover:text-[#88C0D0]"
+          <Link
+            className="group flex items-center gap-3 font-mono text-[var(--text-secondary)] text-sm uppercase tracking-wide transition-colors hover:text-[var(--color-accent-primary)]"
             href="/posts"
           >
             View Archive
-            <span className="block rounded border border-[var(--border-color)] p-1 transition-colors group-hover:border-[#88C0D0]">
+            <span className="block rounded border border-[var(--border-color)] p-1 transition-colors group-hover:border-[var(--color-accent-primary)]">
               <ArrowRight className="h-4 w-4" />
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

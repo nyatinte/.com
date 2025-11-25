@@ -17,6 +17,7 @@ export function NavActions() {
       </Button>
 
       <button
+        aria-label="ナビゲーションメニューを開く"
         className="p-2 text-[var(--text-emphasis)] md:hidden"
         type="button"
       >

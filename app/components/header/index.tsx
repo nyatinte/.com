@@ -1,5 +1,6 @@
 "use client";
 
+import { SearchToggle } from "fumadocs-ui/components/layout/search-toggle";
 import { ThemeSwitcher } from "./theme-switcher";
 
 type FrostedHeaderProps = {
@@ -13,7 +14,7 @@ export function FrostedHeader({ title, links = [] }: FrostedHeaderProps) {
       <nav className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
         <h1 className="font-bold text-xl">{title}</h1>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           {links.length > 0 && (
             <nav className="flex gap-6">
               {links.map(({ label, href }) => (
@@ -27,6 +28,7 @@ export function FrostedHeader({ title, links = [] }: FrostedHeaderProps) {
               ))}
             </nav>
           )}
+          <SearchToggle />
           <ThemeSwitcher />
         </div>
       </nav>

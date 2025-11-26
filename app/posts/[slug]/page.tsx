@@ -1,5 +1,3 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { type BlogPage, blog } from "@/lib/source";
@@ -38,23 +36,14 @@ export default async function PostPage({ params }: Props) {
   }
 
   const MDX = post.data.body;
-
-  // CopyMarkdown機能: サーバーサイドでファイル読み込み
-  // スラッグから直接ファイルパスを構築
-  let rawMarkdown = "";
-  try {
-    const filePath = path.join(process.cwd(), "contents/posts", `${slug}.mdx`);
-    rawMarkdown = await fs.readFile(filePath, "utf-8");
-  } catch (error) {
-    console.error("Failed to read markdown file:", error);
-  }
+  const markdownUrl = `/posts/${slug}/raw`;
 
   return (
     <article className="mx-auto max-w-4xl px-6 py-12">
       <header className="mb-8">
         <div className="mb-6 flex items-start justify-between">
           <h1 className="font-bold text-5xl">{post.data.title}</h1>
-          {rawMarkdown && <CopyMarkdownButton markdown={rawMarkdown} />}
+          <CopyMarkdownButton markdownUrl={markdownUrl} />
         </div>
 
         <div className="flex items-center gap-4 text-muted-foreground text-sm">

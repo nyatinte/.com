@@ -1,6 +1,8 @@
+import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata } from "next";
 import { Chivo, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { DefaultSearchDialog } from "./components/ui/search";
 import { ThemeProvider } from "./components/ui/theme-provider";
 import { ReactGrab } from "./react-grag";
 
@@ -56,7 +58,13 @@ export default function RootLayout({
           disableTransitionOnChange
           enableSystem
         >
-          {children}
+          <RootProvider
+            search={{
+              SearchDialog: DefaultSearchDialog,
+            }}
+          >
+            {children}
+          </RootProvider>
         </ThemeProvider>
       </body>
     </html>

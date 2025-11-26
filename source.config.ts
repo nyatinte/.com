@@ -1,12 +1,13 @@
 import rehypeShiki from "@shikijs/rehype";
+import {
+  defineConfig,
+  defineDocs,
+  frontmatterSchema,
+} from "fumadocs-mdx/config";
 import type { ShikiTransformer } from "shiki";
-import { defineConfig, s } from "velite";
-import { generateExcerpt } from "./lib/excerpt";
-import { calculateReadingTime } from "./lib/reading-time";
+import { z } from "zod";
 
-const MD_EXTENSION_REGEX = /\.md$/;
-
-// https://velite.js.org/guide/code-highlighting#copy-button
+// Veliteのコピーボタンtransformerを再利用
 const transformerCopyButton = (): ShikiTransformer => ({
   name: "copy-button",
   pre(node) {
@@ -73,55 +74,40 @@ const transformerCopyButton = (): ShikiTransformer => ({
   },
 });
 
-export default defineConfig({
-  root: "contents",
-  collections: {
-    posts: {
-      name: "Post",
-      pattern: "posts/**/*.md",
-      schema: s
-        .object({
-          title: s.string().describe("記事のタイトル"),
-          date: s.isodate().describe("公開日"),
-          description: s.string().describe("記事の説明文"),
-          tags: s
-            .array(s.string())
-            .optional()
-            .default([])
-            .describe("記事に関連するタグの配列"),
-          draft: s
-            .boolean()
-            .optional()
-            .default(false)
-            .describe("下書き状態かどうか"),
-          author: s.string().optional().describe("著者名"),
-          coverImage: s.string().optional().describe("カバー画像のパス"),
-          content: s.markdown().describe("HTMLに変換されたコンテンツ"),
-        })
-        .transform((data, { meta }) => {
-          const path = String(meta.path || "");
-          const filename = path.split("/").pop() || "";
-          const slug = filename.replace(MD_EXTENSION_REGEX, "");
-          const rawMarkdown = String(meta.content || "");
-
-          return {
-            ...data,
-            slug,
-            html: data.content,
-            content: rawMarkdown,
-            excerpt: generateExcerpt(rawMarkdown),
-            readingTime: calculateReadingTime(rawMarkdown),
-            url: `/posts/${slug}`,
-          };
+// ブログ定義（docsとして定義）
+export const blog = defineDocs({
+  dir: "contents/posts",
+  docs: {
+    schema: frontmatterSchema.extend({
+      date: z
+        .string()
+        .or(z.date())
+        .transform((val) => {
+          if (val instanceof Date) {
+            return val.toISOString();
+          }
+          return val;
         }),
-    },
+      author: z.string().optional(),
+      coverImage: z.string().optional(),
+      tags: z.array(z.string()).optional().default([]),
+      draft: z.boolean().optional().default(false),
+      readingTime: z.number().optional(),
+    }),
   },
-  markdown: {
+});
+
+// グローバルMDXオプション
+export default defineConfig({
+  mdxOptions: {
     rehypePlugins: [
       [
-        // biome-ignore lint/suspicious/noExplicitAny: <https://velite.js.org/guide/code-highlighting#shikijs-rehype>
+        // biome-ignore lint/suspicious/noExplicitAny: Shiki型定義の互換性
         rehypeShiki as any,
-        { theme: "one-dark-pro", transformers: [transformerCopyButton()] },
+        {
+          theme: "one-dark-pro",
+          transformers: [transformerCopyButton()],
+        },
       ],
     ],
   },

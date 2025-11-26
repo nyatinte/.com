@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "#velite": ["./.velite"]
+      "@/.source": ["./.source"],
+      "fumadocs-mdx:collections/*": ["./.source/*"]
     },
     "strictNullChecks": true
   },

@@ -79,7 +79,15 @@ export const blog = defineDocs({
   dir: "contents/posts",
   docs: {
     schema: frontmatterSchema.extend({
-      date: z.string().or(z.date()),
+      date: z
+        .string()
+        .or(z.date())
+        .transform((val) => {
+          if (val instanceof Date) {
+            return val.toISOString();
+          }
+          return val;
+        }),
       author: z.string().optional(),
       coverImage: z.string().optional(),
       tags: z.array(z.string()).optional().default([]),

@@ -38,14 +38,8 @@ export default function Home() {
                   </h2>
                 </Link>
                 <div className="mb-3 flex items-center gap-4 text-muted-foreground text-sm">
-                  <time
-                    dateTime={
-                      post.data.date instanceof Date
-                        ? post.data.date.toISOString()
-                        : post.data.date
-                    }
-                  >
-                    {new Date(post.data.date ?? "").toLocaleDateString("ja-JP")}
+                  <time dateTime={post.data.date}>
+                    {new Date(post.data.date).toLocaleDateString("ja-JP")}
                   </time>
                   {post.data.readingTime && (
                     <>

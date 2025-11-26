@@ -58,14 +58,8 @@ export default async function PostPage({ params }: Props) {
         </div>
 
         <div className="flex items-center gap-4 text-muted-foreground text-sm">
-          <time
-            dateTime={
-              post.data.date instanceof Date
-                ? post.data.date.toISOString()
-                : post.data.date
-            }
-          >
-            {new Date(post.data.date ?? "").toLocaleDateString("ja-JP")}
+          <time dateTime={post.data.date}>
+            {new Date(post.data.date).toLocaleDateString("ja-JP")}
           </time>
           {post.data.readingTime && (
             <>

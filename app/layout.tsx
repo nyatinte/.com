@@ -1,36 +1,12 @@
-import { RootProvider } from "fumadocs-ui/provider/next";
-import type { Metadata } from "next";
-import { Chivo, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { DefaultSearchDialog } from "./components/ui/search";
-import { ThemeProvider } from "./components/ui/theme-provider";
-import { ReactGrab } from "./react-grag";
-
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const chivo = Chivo({
-  variable: "--font-chivo",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
+import type { Metadata } from "next";
+import { fontVariables } from "./fonts";
+import { Provider } from "./provider";
+import { ReactGrab } from "./react-grab";
 
 export const metadata: Metadata = {
-  title: "Arctic Blog - Modern Technical Blog Theme",
-  description:
-    "A modern, Antarctic-inspired blog theme with glacier tones and subtle glass effects",
+  title: "Nyatinte.com",
+  description: "Web技術とAI、たまにゲームの記事を書きます",
 };
 
 export default function RootLayout({
@@ -39,6 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // WHY: next-themeのdarkmodeサポートのため: <https://github.com/pacocoursey/next-themes#with-app>
     <html lang="ja" suppressHydrationWarning>
       <head>
         <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -49,23 +26,8 @@ export default function RootLayout({
         />
         <ReactGrab />
       </head>
-      <body
-        className={`${interTight.variable} ${chivo.variable} ${jetbrainsMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          enableSystem
-        >
-          <RootProvider
-            search={{
-              SearchDialog: DefaultSearchDialog,
-            }}
-          >
-            {children}
-          </RootProvider>
-        </ThemeProvider>
+      <body className={`${fontVariables} antialiased`}>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

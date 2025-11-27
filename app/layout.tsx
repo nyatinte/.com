@@ -1,15 +1,12 @@
 import "./globals.css";
-import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata } from "next";
-import { DefaultSearchDialog } from "./components/ui/search";
-import { ThemeProvider } from "./components/ui/theme-provider";
 import { fontVariables } from "./fonts";
-import { ReactGrab } from "./react-grag";
+import { Provider } from "./provider";
+import { ReactGrab } from "./react-grab";
 
 export const metadata: Metadata = {
-  title: "Arctic Blog - Modern Technical Blog Theme",
-  description:
-    "A modern, Antarctic-inspired blog theme with glacier tones and subtle glass effects",
+  title: "Nyatinte.com",
+  description: "Web技術とAI、たまにゲームの記事を書きます",
 };
 
 export default function RootLayout({
@@ -18,6 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // WHY: next-themeのdarkmodeサポートのため: <https://github.com/pacocoursey/next-themes#with-app>
     <html lang="ja" suppressHydrationWarning>
       <head>
         <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -29,20 +27,7 @@ export default function RootLayout({
         <ReactGrab />
       </head>
       <body className={`${fontVariables} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          enableSystem
-        >
-          <RootProvider
-            search={{
-              SearchDialog: DefaultSearchDialog,
-            }}
-          >
-            {children}
-          </RootProvider>
-        </ThemeProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

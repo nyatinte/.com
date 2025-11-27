@@ -1,4 +1,7 @@
-import { Github, Twitter } from "lucide-react";
+import { GithubIcon, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { LinkIcon } from "@/components/ui/link-icon";
+import { NYATINTE } from "@/constant/nyatinte";
 
 export function SiteFooter() {
   return (
@@ -8,23 +11,17 @@ export function SiteFooter() {
           Nyatinte.com
         </span>
         <p className="font-body text-muted-foreground text-xs">
-          © 2025 Arctic Frontier. Designed & Built by Nyatinte.
+          © 2025 Nyatinte. All rights reserved.
         </p>
       </div>
 
       <div className="flex gap-6 text-muted-foreground">
-        <a
-          className="transform transition-colors hover:scale-110 hover:text-primary"
-          href="#"
-        >
-          <Twitter size={20} />
-        </a>
-        <a
-          className="transform transition-colors hover:scale-110 hover:text-primary"
-          href="#"
-        >
-          <Github size={20} />
-        </a>
+        <LinkIcon href={NYATINTE.github.url}>
+          <HugeiconsIcon icon={GithubIcon} />
+        </LinkIcon>
+        <LinkIcon href={NYATINTE.x.url}>
+          <HugeiconsIcon icon={NewTwitterIcon} />
+        </LinkIcon>
       </div>
     </footer>
   );

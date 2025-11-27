@@ -1,5 +1,9 @@
-import { Github, Terminal, Twitter } from "lucide-react";
+import { GithubIcon, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Terminal } from "lucide-react";
 import Link from "next/link";
+import { LinkIcon } from "@/components/ui/link-icon";
+import { NYATINTE } from "@/constant/nyatinte";
 import { ThemeSwitcher } from "./header/theme-switcher";
 
 export function SiteHeader() {
@@ -32,18 +36,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-4 border-border border-l pl-4">
-          <a
-            className="text-muted-foreground transition-colors hover:text-primary"
-            href="#"
-          >
-            <Github size={20} />
-          </a>
-          <a
-            className="text-muted-foreground transition-colors hover:text-primary"
-            href="#"
-          >
-            <Twitter size={20} />
-          </a>
+          <LinkIcon href={NYATINTE.github.url}>
+            <HugeiconsIcon icon={GithubIcon} />
+          </LinkIcon>
+          <LinkIcon href={NYATINTE.x.url}>
+            <HugeiconsIcon icon={NewTwitterIcon} />
+          </LinkIcon>
 
           <ThemeSwitcher className="ml-2" />
         </div>

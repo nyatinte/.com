@@ -1,8 +1,8 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { NyatinteAvatar } from "@/components/ui/nyatinte-avatar";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { NyatinteAvatar } from "./nyatinte-avatar";
-import { Button } from "./ui/button";
 
 export function HeroSection() {
   return (
@@ -18,9 +18,7 @@ export function HeroSection() {
         </div>
 
         <div className="flex flex-col gap-6 text-center md:text-left">
-          <StatusBadge className="mx-auto md:mx-0">
-            UI ENGINEER / DESIGNER
-          </StatusBadge>
+          <StatusBadge className="mx-auto md:mx-0">Web Engineer</StatusBadge>
 
           <h1 className="font-bold font-display text-5xl text-foreground leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
             Nyatinte<span className="text-primary">.</span>com

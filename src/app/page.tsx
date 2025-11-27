@@ -4,15 +4,12 @@ import { Separator } from "@/components/ui/separator";
 import { AuroraBackground } from "./components/aurora-background";
 import { HeroSection } from "./components/hero-section";
 import { LatestPostList } from "./components/latest-post-list";
-import { SiteFooter } from "./components/site-footer";
-import { SiteHeader } from "./components/site-header";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background font-body text-foreground selection:bg-primary selection:text-primary-foreground">
+    <div className="relative">
       <AuroraBackground />
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-16 px-6 py-8 md:gap-24 md:px-12 md:py-12">
-        <SiteHeader />
+      <div className="relative z-10 flex flex-col gap-16 md:gap-24">
         <HeroSection />
 
         <Separator />
@@ -26,8 +23,6 @@ export default function Home() {
             <LatestPostList />
           </div>
         </section>
-
-        <SiteFooter />
       </div>
     </div>
   );

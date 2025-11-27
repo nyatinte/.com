@@ -3,7 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { LinkIcon } from "@/components/ui/link-icon";
 import { NYATINTE } from "@/constant/nyatinte";
 
-export function SiteFooter() {
+export function Footer() {
   return (
     <footer className="fade-in slide-in-from-bottom-5 mt-10 flex animate-in flex-col items-center justify-between gap-6 border-border border-t pt-10 delay-900 duration-800 md:mt-20 md:flex-row">
       <div className="flex flex-col gap-2 text-center md:text-left">

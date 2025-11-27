@@ -1,7 +1,7 @@
 import { Calendar, Clock } from "lucide-react";
 import Image from "next/image";
-import { Badge } from "@/app/components/ui/badge";
-import { Button } from "@/app/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,7 +9,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/app/components/ui/card";
+} from "@/components/ui/card";
 
 type PostCardProps = {
   imageUrl?: string;

@@ -4,9 +4,9 @@ import { Terminal } from "lucide-react";
 import Link from "next/link";
 import { LinkIcon } from "@/components/ui/link-icon";
 import { NYATINTE } from "@/constant/nyatinte";
-import { ThemeSwitcher } from "./header/theme-switcher";
+import { ThemeSwitcher } from "../../components/ui/theme-switcher";
 
-export function SiteHeader() {
+export function Header() {
   return (
     <header className="fade-in slide-in-from-top-5 flex animate-in items-center justify-between duration-800">
       {/* Logo */}

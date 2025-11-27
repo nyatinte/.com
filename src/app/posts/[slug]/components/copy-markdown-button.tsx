@@ -2,7 +2,7 @@
 
 import { useCopyButton } from "fumadocs-ui/utils/use-copy-button";
 import { useState } from "react";
-import { Button } from "@/app/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 type CopyMarkdownButtonProps = {
   markdownUrl: string;

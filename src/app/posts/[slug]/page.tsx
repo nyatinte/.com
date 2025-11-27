@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { type BlogPage, blog } from "@/lib/source";
-import { CopyMarkdownButton } from "../components/copy-markdown-button";
+import { CopyMarkdownButton } from "./components/copy-markdown-button";
 
 type Props = {
   params: Promise<{ slug: string }>;

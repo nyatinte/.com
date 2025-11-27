@@ -1,7 +1,14 @@
+import "./globals.css";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata } from "next";
-import { Chivo, Inter_Tight, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import {
+  Chivo,
+  Inter_Tight,
+  JetBrains_Mono,
+  Noto_Sans_JP,
+  Plus_Jakarta_Sans,
+  Unbounded,
+} from "next/font/google";
 import { DefaultSearchDialog } from "./components/ui/search";
 import { ThemeProvider } from "./components/ui/theme-provider";
 import { ReactGrab } from "./react-grag";
@@ -24,6 +31,27 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const notoSansJP = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -50,7 +78,7 @@ export default function RootLayout({
         <ReactGrab />
       </head>
       <body
-        className={`${interTight.variable} ${chivo.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${interTight.variable} ${chivo.variable} ${jetbrainsMono.variable} ${unbounded.variable} ${plusJakartaSans.variable} ${notoSansJP.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

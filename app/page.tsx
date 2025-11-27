@@ -1,81 +1,42 @@
-import Link from "next/link";
-import { type BlogPage, blog } from "@/lib/source";
-import { FrostedHeader } from "./components/header";
+import { Layers } from "lucide-react";
+import { blog } from "@/lib/source";
+import { ArticleCardList } from "./components/article-card-list";
+import { AuroraBackground } from "./components/aurora-background";
+import { HeroSection } from "./components/hero-section";
+import { SiteFooter } from "./components/site-footer";
+import { SiteHeader } from "./components/site-header";
 
 export default function Home() {
-  const posts = blog.getPages() as BlogPage[];
+  const posts = blog.getPages();
 
   return (
-    <div className="min-h-screen">
-      <FrostedHeader
-        links={[{ label: "Home", href: "/" }]}
-        title="Nyatinte Blog"
-      />
+    <div className="relative min-h-screen overflow-x-hidden bg-background font-body text-foreground selection:bg-primary selection:text-primary-foreground">
+      <AuroraBackground />
 
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-[1100px] text-center">
-          <h1 className="mb-6 font-bold text-5xl leading-tight md:text-6xl lg:text-7xl">
-            技術ブログ
-          </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-foreground/80 text-lg leading-relaxed md:text-xl">
-            Next.js、TypeScript、Webフロントエンドについて
-          </p>
-        </div>
-      </section>
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-16 px-6 py-8 md:gap-24 md:px-12 md:py-12">
+        <SiteHeader />
 
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-[1100px]">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-bold text-3xl md:text-4xl">最新記事</h2>
+        <HeroSection />
+
+        {/* Divider */}
+        <div className="fade-in slide-in-from-bottom-5 h-[1px] w-full animate-in bg-gradient-to-r from-transparent via-border to-transparent delay-300 duration-800" />
+
+        {/* Featured Posts */}
+        <section className="flex flex-col gap-10">
+          <div className="fade-in slide-in-from-bottom-5 flex animate-in items-end justify-between delay-400 duration-800">
+            <h2 className="flex items-center gap-3 font-display font-semibold text-2xl text-foreground md:text-3xl">
+              <Layers className="text-primary" size={24} />
+              Latest Insights
+            </h2>
           </div>
 
-          <div className="space-y-8">
-            {posts.map((post) => (
-              <article className="border-border border-b pb-8" key={post.url}>
-                <Link className="group" href={post.url}>
-                  <h2 className="mb-2 font-semibold text-2xl transition-colors group-hover:text-primary">
-                    {post.data.title}
-                  </h2>
-                </Link>
-                <div className="mb-3 flex items-center gap-4 text-muted-foreground text-sm">
-                  <time dateTime={post.data.date}>
-                    {new Date(post.data.date).toLocaleDateString("ja-JP")}
-                  </time>
-                  {post.data.readingTime && (
-                    <>
-                      <span>•</span>
-                      <span>{post.data.readingTime}分で読めます</span>
-                    </>
-                  )}
-                </div>
-                <p className="mb-4 text-muted-foreground">
-                  {post.data.description}
-                </p>
-                {post.data.tags && post.data.tags.length > 0 && (
-                  <div className="flex gap-2">
-                    {post.data.tags.map((tag) => (
-                      <span
-                        className="rounded-full bg-primary/10 px-3 py-1 text-xs"
-                        key={tag}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </article>
-            ))}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+            <ArticleCardList posts={posts} />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="border-t px-6 py-12">
-        <div className="mx-auto max-w-[1100px] text-center">
-          <p className="text-foreground/60 text-sm">
-            Powered by Fumadocs & Next.js
-          </p>
-        </div>
-      </footer>
+        <SiteFooter />
+      </div>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Terminal } from "lucide-react";
 import Link from "next/link";
 import { LinkIcon } from "@/components/ui/link-icon";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { NYATINTE } from "@/constant/nyatinte";
-import { ThemeSwitcher } from "../../components/ui/theme-switcher";
 
 export function Header() {
   return (

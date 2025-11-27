@@ -26,6 +26,7 @@ export function SiteHeader() {
       <div className="flex items-center gap-6 md:gap-8">
         <nav className="hidden gap-8 font-mono text-muted-foreground text-sm md:flex">
           {["Index", "Playground", "About"].map((item) => (
+            // biome-ignore lint/a11y/useValidAnchor: TODO: implement page...
             <a className="group relative overflow-hidden" href="#" key={item}>
               <span className="relative z-10 transition-colors duration-300 group-hover:text-primary">
                 {item}

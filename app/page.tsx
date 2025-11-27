@@ -1,14 +1,11 @@
 import { Layers } from "lucide-react";
-import { blog } from "@/lib/source";
-import { ArticleCardList } from "./components/article-card-list";
 import { AuroraBackground } from "./components/aurora-background";
 import { HeroSection } from "./components/hero-section";
+import { LatestPostList } from "./components/latest-post-list";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
 
 export default function Home() {
-  const posts = blog.getPages();
-
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background font-body text-foreground selection:bg-primary selection:text-primary-foreground">
       <AuroraBackground />
@@ -31,7 +28,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-            <ArticleCardList posts={posts} />
+            <LatestPostList />
           </div>
         </section>
 

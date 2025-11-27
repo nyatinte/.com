@@ -1,12 +1,10 @@
 import { ArrowRight, Cpu } from "lucide-react";
 import Link from "next/link";
-import type { BlogPage } from "@/lib/source";
+import { blog } from "@/lib/source";
 
-type ArticleCardListProps = {
-  posts: BlogPage[];
-};
+export function LatestPostList() {
+  const posts = blog.getPages();
 
-export function ArticleCardList({ posts }: ArticleCardListProps) {
   return (
     <>
       {posts.map((post, index) => (

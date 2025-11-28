@@ -20,3 +20,11 @@ export const blog = loader({
 
 // ブログページの型を推論
 export type BlogPage = InferPageType<typeof blog>;
+
+export function getPageImage(page: BlogPage) {
+  const segments = [...page.slugs, "image.png"];
+  return {
+    segments,
+    url: `/og/posts/${segments.join("/")}`,
+  };
+}

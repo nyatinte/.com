@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { type BlogPage, blog } from "@/lib/source";
+import { type BlogPage, blog, getPageImage } from "@/lib/source";
 import { CopyMarkdownButton } from "./components/copy-markdown-button";
 
 type Props = {
@@ -24,6 +24,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.data.title,
     description: post.data.description,
+    openGraph: {
+      title: post.data.title,
+      description: post.data.description,
+      images: getPageImage(post).url,
+      siteName: "Nyatinte.com",
+      type: "article",
+      publishedTime: post.data.date,
+      authors: post.data.author ? [post.data.author] : undefined,
+      tags: post.data.tags,
+    },
   };
 }
 

@@ -58,6 +58,3 @@ storybook-static
 
 # generated content
 .generated/
-
-# OpenNext
-.open-next

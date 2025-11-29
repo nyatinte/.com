@@ -6,7 +6,7 @@
     {
       "description": "Automerge minor and patch updates (except for Next.js and related packages)",
       "matchUpdateTypes": ["minor", "patch"],
-      "excludePackageNames": ["next", "@opennextjs/cloudflare"],
+      "excludePackageNames": ["next"],
       "automerge": true
     }
   ]

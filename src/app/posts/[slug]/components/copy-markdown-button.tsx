@@ -16,12 +16,7 @@ export function CopyMarkdownButton({ content }: CopyMarkdownButtonProps) {
     setLoading(true);
 
     try {
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          /** @see {@link <https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/MIME_types/Common_types>} */
-          "text/plain": content,
-        }),
-      ]);
+      await navigator.clipboard.writeText(content);
     } finally {
       setLoading(false);
     }

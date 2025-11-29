@@ -1,7 +1,13 @@
+import { format } from "date-fns";
+import { DocsBody } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
+import { ReadingTime } from "@/components/ui/reading-time";
 import { type BlogPage, blog, getPageImage } from "@/lib/source";
 import { CopyMarkdownButton } from "./components/copy-markdown-button";
+import { getMDXComponents } from "./components/mdx-components";
+import { TableOfContents } from "./components/table-of-content";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -31,7 +37,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "Nyatinte.com",
       type: "article",
       publishedTime: post.data.date,
-      authors: post.data.author ? [post.data.author] : undefined,
       tags: post.data.tags,
     },
   };
@@ -39,51 +44,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-  const post = blog.getPage([slug]) as BlogPage | undefined;
+  const post = blog.getPage([slug]);
 
   if (!post) {
     notFound();
   }
 
   const MDX = post.data.body;
-  const markdownUrl = `/posts/${slug}/raw`;
+
+  const processedMDXText = await post.data.getText("processed");
 
   return (
-    <article className="mx-auto max-w-4xl px-6 py-12">
+    <article className="mx-auto max-w-4xl px-6">
       <header className="mb-8">
         <div className="mb-6 flex items-start justify-between">
-          <h1 className="font-bold text-5xl">{post.data.title}</h1>
-          <CopyMarkdownButton markdownUrl={markdownUrl} />
+          <h1 className="font-bold text-4xl">{post.data.title}</h1>
         </div>
 
         <div className="flex items-center gap-4 text-muted-foreground text-sm">
           <time dateTime={post.data.date}>
-            {new Date(post.data.date).toLocaleDateString("ja-JP")}
+            {format(new Date(post.data.date), "yyyy/M/d")}
           </time>
-          {post.data.readingTime && (
-            <>
-              <span>•</span>
-              <span>{post.data.readingTime}分で読めます</span>
-            </>
-          )}
+          <ReadingTime content={processedMDXText} />
         </div>
 
+        <CopyMarkdownButton content={processedMDXText} />
         {post.data.tags && post.data.tags.length > 0 && (
           <div className="mt-4 flex gap-2">
             {post.data.tags.map((tag) => (
-              <span
-                className="rounded-full bg-primary/10 px-3 py-1 text-xs"
-                key={tag}
-              >
-                {tag}
-              </span>
+              <Badge key={tag}>{tag}</Badge>
             ))}
           </div>
         )}
       </header>
-
-      <div className="prose prose-lg dark:prose-invert max-w-none">
-        <MDX />
+      <div className="relative z-10 mx-auto flex max-w-7xl px-4 md:px-0">
+        <div className="prose dark:prose-invert prose-lg max-w-none prose-headings:scroll-mt-8 prose-headings:text-balance prose-p:text-balance prose-headings:font-semibold prose-headings:tracking-tight prose-p:tracking-tight prose-a:no-underline">
+          <DocsBody>
+            <MDX components={getMDXComponents()} />
+          </DocsBody>
+        </div>
+        <aside className="fixed top-32 right-16 hidden md:block">
+          <div className="sticky top-40 rounded-lg border border-border bg-card p-6">
+            <TableOfContents />
+          </div>
+        </aside>
       </div>
     </article>
   );

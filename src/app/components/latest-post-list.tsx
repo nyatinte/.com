@@ -18,7 +18,7 @@ export function LatestPostList() {
             <div className="mb-3 flex items-center gap-3 font-mono text-primary text-xs">
               <span className="flex items-center gap-1">
                 <Cpu size={12} />
-                {post.data.readingTime ? `${post.data.readingTime}分` : "5分"}
+                5分
               </span>
               <span>•</span>
               <span>

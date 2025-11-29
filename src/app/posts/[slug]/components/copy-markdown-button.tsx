@@ -1,34 +1,25 @@
 "use client";
 
+import { Task02Icon, Tick02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useCopyButton } from "fumadocs-ui/utils/use-copy-button";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 type CopyMarkdownButtonProps = {
-  markdownUrl: string;
+  content: string;
 };
 
-const cache = new Map<string, string>();
-
-export function CopyMarkdownButton({ markdownUrl }: CopyMarkdownButtonProps) {
+export function CopyMarkdownButton({ content }: CopyMarkdownButtonProps) {
   const [isLoading, setLoading] = useState(false);
   const [checked, onClick] = useCopyButton(async () => {
-    const cached = cache.get(markdownUrl);
-    if (cached) {
-      return navigator.clipboard.writeText(cached);
-    }
-
     setLoading(true);
 
     try {
       await navigator.clipboard.write([
         new ClipboardItem({
-          "text/plain": fetch(markdownUrl).then(async (res) => {
-            const content = await res.text();
-            cache.set(markdownUrl, content);
-
-            return content;
-          }),
+          /** @see {@link <https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/MIME_types/Common_types>} */
+          "text/plain": content,
         }),
       ]);
     } finally {
@@ -37,8 +28,13 @@ export function CopyMarkdownButton({ markdownUrl }: CopyMarkdownButtonProps) {
   });
 
   return (
-    <Button disabled={isLoading} onClick={onClick} size="sm" variant="ghost">
-      {checked ? "Copied!" : "Copy Markdown"}
+    <Button disabled={isLoading} onClick={onClick} size="sm" variant="outline">
+      {checked ? (
+        <HugeiconsIcon icon={Tick02Icon} />
+      ) : (
+        <HugeiconsIcon icon={Task02Icon} />
+      )}
+      Copy Markdown
     </Button>
   );
 }

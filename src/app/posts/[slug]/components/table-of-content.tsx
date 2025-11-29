@@ -36,103 +36,35 @@ export function TableOfContents({ className }: TableOfContentsProps) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      () => {
-        const headingPositions = headings.map((heading) => {
-          const element = document.getElementById(heading.id);
-          return {
-            id: heading.id,
-            top: element
-              ? element.getBoundingClientRect().top
-              : Number.POSITIVE_INFINITY,
-          };
-        });
-
-        let activeHeading = headingPositions.find(
-          (heading) => heading.top >= 0 && heading.top <= 100
-        );
-
-        if (!activeHeading) {
-          const headingsAbove = headingPositions
-            .filter((heading) => heading.top < 0)
-            .sort((a, b) => b.top - a.top);
-
-          activeHeading = headingsAbove[0];
-        }
-
-        if (!activeHeading) {
-          const headingsBelow = headingPositions
-            .filter((heading) => heading.top > 100)
-            .sort((a, b) => a.top - b.top);
-
-          activeHeading = headingsBelow[0];
-        }
-
-        if (activeHeading && activeHeading.id !== activeId) {
-          setActiveId(activeHeading.id);
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
         }
       },
       {
-        root: null,
-        rootMargin: "-100px",
-        threshold: 0,
+        rootMargin: "0px 0px -80% 0px",
+        threshold: 1.0,
       }
     );
 
-    for (const { id } of headings) {
-      const element = document.getElementById(id);
+    const elements = headings.map((h) => document.getElementById(h.id));
+
+    for (const element of elements) {
       if (element) {
         observer.observe(element);
       }
     }
 
-    const handleScroll = () => {
-      const headingPositions = headings.map((heading) => {
-        const element = document.getElementById(heading.id);
-        return {
-          id: heading.id,
-          top: element
-            ? element.getBoundingClientRect().top
-            : Number.POSITIVE_INFINITY,
-        };
-      });
-
-      let activeHeading = headingPositions.find(
-        (heading) => heading.top >= -50 && heading.top <= 100
-      );
-
-      if (!activeHeading) {
-        const headingsAbove = headingPositions
-          .filter((heading) => heading.top < -50)
-          .sort((a, b) => b.top - a.top);
-
-        activeHeading = headingsAbove[0];
-      }
-
-      if (activeHeading && activeHeading.id !== activeId) {
-        setActiveId(activeHeading.id);
-      }
-    };
-
-    let scrollTimeout: NodeJS.Timeout;
-    const throttledScroll = () => {
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-      }
-      scrollTimeout = setTimeout(handleScroll, 10);
-    };
-
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-
-    handleScroll();
-
     return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", throttledScroll);
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
+      for (const element of elements) {
+        if (element) {
+          observer.unobserve(element);
+        }
       }
     };
-  }, [headings, activeId]);
+  }, [headings]);
 
   const handleClick = async (id: string) => {
     const url = `${window.location.origin}${window.location.pathname}#${id}`;

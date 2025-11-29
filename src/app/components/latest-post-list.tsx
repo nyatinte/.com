@@ -1,5 +1,6 @@
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ReadingTime } from "@/components/ui/reading-time";
 import { blog } from "@/lib/source";
 
 export function LatestPostList() {
@@ -16,10 +17,7 @@ export function LatestPostList() {
           {/* Card Content */}
           <div className="relative flex flex-1 flex-col p-6 md:p-8">
             <div className="mb-3 flex items-center gap-3 font-mono text-primary text-xs">
-              <span className="flex items-center gap-1">
-                <Cpu size={12} />
-                5分
-              </span>
+              <ReadingTime content={post.data.getText("processed")} />
               <span>•</span>
               <span>
                 {new Date(post.data.date).toLocaleDateString("ja-JP")}

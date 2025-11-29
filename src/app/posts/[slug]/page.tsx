@@ -78,11 +78,9 @@ export default async function PostPage({ params }: Props) {
         )}
       </header>
       <div className="relative z-10 mx-auto flex max-w-7xl px-4 md:px-0">
-        <div className="prose dark:prose-invert prose-lg max-w-none prose-headings:scroll-mt-8 prose-headings:text-balance prose-p:text-balance prose-headings:font-semibold prose-headings:tracking-tight prose-p:tracking-tight prose-a:no-underline">
-          <DocsBody>
-            <MDX components={getMDXComponents()} />
-          </DocsBody>
-        </div>
+        <DocsBody className="dark:prose-invert prose-lg max-w-none prose-headings:scroll-mt-8 prose-headings:text-balance prose-p:text-balance prose-headings:font-semibold prose-headings:tracking-tight prose-p:tracking-tight prose-a:no-underline">
+          <MDX components={getMDXComponents()} />
+        </DocsBody>
         <aside className="fixed top-32 right-16 hidden md:block">
           <div className="sticky top-40 rounded-lg border border-border bg-card p-6">
             <TableOfContents />

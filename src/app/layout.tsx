@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header";
 import { fontVariables } from "./fonts";
 import { Provider } from "./provider";
 import { ReactGrab } from "./react-grab";
+import { AuroraBackground } from "./components/aurora-background";
 
 export const metadata: Metadata = {
   title: "Nyatinte.com",
@@ -31,8 +32,9 @@ export default function RootLayout({
       <body
         className={`${fontVariables} min-h-screen overflow-x-hidden bg-background font-body text-foreground antialiased selection:bg-primary selection:text-primary-foreground`}
       >
+        <AuroraBackground />
         <Provider>
-          <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-8 md:gap-24 md:px-12 md:py-12">
+          <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-16 px-6 py-8 md:gap-24 md:px-12 md:py-12">
             <Header />
             <main className="flex flex-col gap-16 md:gap-24">{children}</main>
             <Footer />

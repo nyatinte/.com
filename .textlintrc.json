@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "mdx": true
+  },
+  "rules": {
+    "preset-ja-technical-writing": true,
+    "preset-ai-writing": true
+  }
+}

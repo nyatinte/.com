@@ -1,5 +1,7 @@
+import { format } from "date-fns";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ReadingTime } from "@/components/ui/reading-time";
 import { type BlogPage, blog } from "@/lib/source";
 
 export const metadata: Metadata = {
@@ -25,14 +27,9 @@ export default async function PostsPage() {
 
             <div className="mb-3 flex items-center gap-4 text-muted-foreground text-sm">
               <time dateTime={post.data.date}>
-                {new Date(post.data.date).toLocaleDateString("ja-JP")}
+                {format(new Date(post.data.date), "yyyy/M/d")}
               </time>
-              {post.data.readingTime && (
-                <>
-                  <span>•</span>
-                  <span>{post.data.readingTime}分で読めます</span>
-                </>
-              )}
+              <ReadingTime content={post.data.getText("processed")} />
             </div>
 
             <p className="mb-4 text-muted-foreground">

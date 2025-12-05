@@ -4,6 +4,8 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /** @see {@link <https://fumadocs.dev/docs/ui/components/codeblock>} */
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {

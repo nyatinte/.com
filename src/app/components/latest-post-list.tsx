@@ -1,6 +1,7 @@
-import { ArrowRight02Icon, CpuIcon } from "@hugeicons/core-free-icons";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
+import { ReadingTime } from "@/components/ui/reading-time";
 import { blog } from "@/lib/source";
 
 export function LatestPostList() {
@@ -17,10 +18,7 @@ export function LatestPostList() {
           {/* Card Content */}
           <div className="relative flex flex-1 flex-col p-6 md:p-8">
             <div className="mb-3 flex items-center gap-3 font-mono text-primary text-xs">
-              <span className="flex items-center gap-1">
-                <HugeiconsIcon icon={CpuIcon} size={12} />
-                {post.data.readingTime ? `${post.data.readingTime}分` : "5分"}
-              </span>
+              <ReadingTime content={post.data.getText("processed")} />
               <span>•</span>
               <span>
                 {new Date(post.data.date).toLocaleDateString("ja-JP")}

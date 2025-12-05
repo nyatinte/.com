@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { AuroraBackground } from "@/components/layout/aurora-background";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { fontVariables } from "./fonts";
 import { Provider } from "./provider";
 import { ReactGrab } from "./react-grab";
-import { AuroraBackground } from "./components/aurora-background";
 
 export const metadata: Metadata = {
   title: "Nyatinte.com",

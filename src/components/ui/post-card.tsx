@@ -1,4 +1,5 @@
-import { Calendar, Clock } from "lucide-react";
+import { Calendar03Icon, Clock01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -61,14 +62,14 @@ export function PostCard({
           <div className="flex flex-wrap items-center gap-3 text-muted-foreground text-sm">
             {date && (
               <div className="flex items-center gap-1.5">
-                <Calendar className="size-3.5" />
+                <HugeiconsIcon className="size-3.5" icon={Calendar03Icon} />
                 <span>{date}</span>
               </div>
             )}
 
             {readingTime && (
               <div className="flex items-center gap-1.5">
-                <Clock className="size-3.5" />
+                <HugeiconsIcon className="size-3.5" icon={Clock01Icon} />
                 <span>{readingTime}分で読めます</span>
               </div>
             )}

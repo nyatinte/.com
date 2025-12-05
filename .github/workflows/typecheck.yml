@@ -32,5 +32,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generate fumadocs types
+        run: pnpm fumadocs-mdx
+
       - name: Run type check
         run: pnpm typecheck

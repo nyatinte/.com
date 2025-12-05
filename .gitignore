@@ -21,8 +21,8 @@ bun.lock
 /.next/
 /out/
 
-# velite
-.velite/posts.json
+# fumadocs
+.source/
 
 # production
 /build
@@ -58,6 +58,3 @@ storybook-static
 
 # generated content
 .generated/
-
-# OpenNext
-.open-next

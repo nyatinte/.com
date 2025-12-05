@@ -1,4 +1,5 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight02Icon, SparklesIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { NyatinteAvatar } from "@/components/ui/nyatinte-avatar";
@@ -13,7 +14,7 @@ export function HeroSection() {
           <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/30 to-primary/50 opacity-30 blur-2xl transition-opacity duration-500 group-hover:opacity-50" />
           <NyatinteAvatar />
           <div className="absolute right-2 bottom-2 rounded-full border border-primary/50 bg-card p-3 text-primary shadow-lg">
-            <Sparkles size={24} />
+            <HugeiconsIcon icon={SparklesIcon} size={24} />
           </div>
         </div>
 
@@ -34,7 +35,7 @@ export function HeroSection() {
                 className="relative z-10 flex items-center gap-2"
                 href="/posts"
               >
-                記事を読む <ArrowRight size={18} />
+                記事を読む <HugeiconsIcon icon={ArrowRight02Icon} size={18} />
               </Link>
             </Button>
           </div>

@@ -1,7 +1,12 @@
 "use client";
 
+import {
+  ComputerIcon,
+  Moon02Icon,
+  Sun03Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useControllableState } from "@radix-ui/react-use-controllable-state";
-import { Monitor, Moon, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useState } from "react";
@@ -10,17 +15,17 @@ import { cn } from "@/lib/utils";
 const themes = [
   {
     key: "system",
-    icon: Monitor,
+    icon: ComputerIcon,
     label: "System theme",
   },
   {
     key: "light",
-    icon: Sun,
+    icon: Sun03Icon,
     label: "Light theme",
   },
   {
     key: "dark",
-    icon: Moon,
+    icon: Moon02Icon,
     label: "Dark theme",
   },
 ] as const;
@@ -72,7 +77,7 @@ export function ThemeSwitcher({
         className
       )}
     >
-      {themes.map(({ key, icon: Icon, label }) => {
+      {themes.map(({ key, icon, label }) => {
         const isActive = theme === key;
         return (
           <button
@@ -89,11 +94,12 @@ export function ThemeSwitcher({
                 transition={{ type: "spring", duration: 0.5 }}
               />
             )}
-            <Icon
+            <HugeiconsIcon
               className={cn(
-                "relative z-10 m-auto h-4 w-4",
+                "relative z-10 m-auto size-4",
                 isActive ? "text-foreground" : "text-muted-foreground"
               )}
+              icon={icon}
             />
           </button>
         );

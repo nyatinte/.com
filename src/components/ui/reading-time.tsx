@@ -1,4 +1,5 @@
-import { Clock } from "lucide-react";
+import { Clock01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { calculateReadingTime } from "@/lib/reading-time";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +19,7 @@ export async function ReadingTime({
 
   return (
     <span className={cn("flex items-center gap-1", className)}>
-      {showIcon && <Clock size={12} />}
+      {showIcon && <HugeiconsIcon icon={Clock01Icon} size={12} />}
       <span>{minutes}分で読めます</span>
     </span>
   );

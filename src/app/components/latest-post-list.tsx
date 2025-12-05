@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { ReadingTime } from "@/components/ui/reading-time";
 import { blog } from "@/lib/source";
@@ -54,8 +55,9 @@ export function LatestPostList() {
               <span className="decoration-2 underline-offset-4 group-hover/link:underline">
                 READ MORE
               </span>
-              <ArrowRight
+              <HugeiconsIcon
                 className="ml-2 transform transition-transform group-hover/link:translate-x-1"
+                icon={ArrowRight02Icon}
                 size={16}
               />
             </Link>

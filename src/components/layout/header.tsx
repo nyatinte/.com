@@ -1,6 +1,9 @@
-import { GithubIcon, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import {
+  ComputerTerminalIcon,
+  GithubIcon,
+  NewTwitterIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Terminal } from "lucide-react";
 import Link from "next/link";
 import { LinkIcon } from "@/components/ui/link-icon";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
@@ -14,7 +17,11 @@ export function Header() {
         <div className="relative">
           <div className="absolute inset-0 bg-primary opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-50" />
           <div className="relative flex h-10 w-10 rotate-3 items-center justify-center border border-primary/30 bg-card transition-transform duration-300 group-hover:rotate-0">
-            <Terminal className="h-5 w-5 text-primary" />
+            <HugeiconsIcon
+              className="text-primary"
+              icon={ComputerTerminalIcon}
+              size={20}
+            />
           </div>
         </div>
         <span className="font-bold font-display text-foreground text-xl tracking-tight">

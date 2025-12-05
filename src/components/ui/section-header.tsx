@@ -1,9 +1,10 @@
+import type { IconSvgElement } from "@hugeicons/react";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Slot } from "@radix-ui/react-slot";
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type SectionHeaderProps = {
-  icon?: LucideIcon;
+  icon?: IconSvgElement;
   iconSize?: number;
   children: React.ReactNode;
   className?: string;
@@ -11,7 +12,7 @@ type SectionHeaderProps = {
 };
 
 export function SectionHeader({
-  icon: Icon,
+  icon,
   iconSize = 24,
   children,
   className,
@@ -26,7 +27,9 @@ export function SectionHeader({
         className
       )}
     >
-      {Icon && <Icon className="text-primary" size={iconSize} />}
+      {icon && (
+        <HugeiconsIcon className="text-primary" icon={icon} size={iconSize} />
+      )}
       {children}
     </Comp>
   );

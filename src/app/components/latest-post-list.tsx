@@ -1,4 +1,5 @@
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight02Icon, CpuIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { blog } from "@/lib/source";
 
@@ -17,7 +18,7 @@ export function LatestPostList() {
           <div className="relative flex flex-1 flex-col p-6 md:p-8">
             <div className="mb-3 flex items-center gap-3 font-mono text-primary text-xs">
               <span className="flex items-center gap-1">
-                <Cpu size={12} />
+                <HugeiconsIcon icon={CpuIcon} size={12} />
                 {post.data.readingTime ? `${post.data.readingTime}分` : "5分"}
               </span>
               <span>•</span>
@@ -56,8 +57,9 @@ export function LatestPostList() {
               <span className="decoration-2 underline-offset-4 group-hover/link:underline">
                 READ MORE
               </span>
-              <ArrowRight
+              <HugeiconsIcon
                 className="ml-2 transform transition-transform group-hover/link:translate-x-1"
+                icon={ArrowRight02Icon}
                 size={16}
               />
             </Link>

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { AuroraBackground } from "@/components/layout/aurora-background";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { fontVariables } from "./fonts";
 import { Provider } from "./provider";
 import { ReactGrab } from "./react-grab";
 
@@ -21,17 +20,9 @@ export default function RootLayout({
     // WHY: next-themeのdarkmodeサポートのため: <https://github.com/pacocoursey/next-themes#with-app>
     <html lang="ja" suppressHydrationWarning>
       <head>
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link
-          crossOrigin="anonymous"
-          href="https://fonts.gstatic.com"
-          rel="preconnect"
-        />
         <ReactGrab />
       </head>
-      <body
-        className={`${fontVariables} min-h-screen overflow-x-hidden bg-background font-body text-foreground antialiased selection:bg-primary selection:text-primary-foreground`}
-      >
+      <body className="min-h-screen overflow-x-hidden bg-background font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
         <AuroraBackground />
         <Provider>
           <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-16 px-6 py-8 md:gap-24 md:px-12 md:py-12">

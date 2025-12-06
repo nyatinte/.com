@@ -23,7 +23,7 @@ export function SectionHeader({
   return (
     <Comp
       className={cn(
-        "flex items-center gap-3 font-display font-semibold text-2xl text-foreground md:text-3xl",
+        "flex items-center gap-3 font-semibold text-2xl text-foreground md:text-3xl",
         className
       )}
     >

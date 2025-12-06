@@ -1,6 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Button } from "./button";
 
+const ChevronRightIcon = () => (
+  <svg
+    fill="none"
+    height="16"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>Chevron Right</title>
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
+
 const meta = {
   title: "UI/Button",
   component: Button,
@@ -132,30 +149,11 @@ export const Large: Story = {
  * アイコンのみのボタン（デフォルトサイズ）
  */
 export const Icon: Story = {
-  render: (args) => {
-    const ChevronRight = () => (
-      <svg
-        fill="none"
-        height="16"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Chevron Right</title>
-        <polyline points="9 18 15 12 9 6" />
-      </svg>
-    );
-
-    return (
-      <Button {...args}>
-        <ChevronRight />
-      </Button>
-    );
-  },
+  render: (args) => (
+    <Button {...args}>
+      <ChevronRightIcon />
+    </Button>
+  ),
   args: {
     variant: "outline",
     size: "icon",
@@ -166,30 +164,11 @@ export const Icon: Story = {
  * アイコンのみのボタン（小サイズ）
  */
 export const IconSmall: Story = {
-  render: (args) => {
-    const ChevronRight = () => (
-      <svg
-        fill="none"
-        height="16"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Chevron Right</title>
-        <polyline points="9 18 15 12 9 6" />
-      </svg>
-    );
-
-    return (
-      <Button {...args}>
-        <ChevronRight />
-      </Button>
-    );
-  },
+  render: (args) => (
+    <Button {...args}>
+      <ChevronRightIcon />
+    </Button>
+  ),
   args: {
     variant: "outline",
     size: "icon-sm",
@@ -200,30 +179,11 @@ export const IconSmall: Story = {
  * アイコンのみのボタン（大サイズ）
  */
 export const IconLarge: Story = {
-  render: (args) => {
-    const ChevronRight = () => (
-      <svg
-        fill="none"
-        height="16"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Chevron Right</title>
-        <polyline points="9 18 15 12 9 6" />
-      </svg>
-    );
-
-    return (
-      <Button {...args}>
-        <ChevronRight />
-      </Button>
-    );
-  },
+  render: (args) => (
+    <Button {...args}>
+      <ChevronRightIcon />
+    </Button>
+  ),
   args: {
     variant: "outline",
     size: "icon-lg",
@@ -234,31 +194,12 @@ export const IconLarge: Story = {
  * テキストとアイコンを組み合わせたボタン
  */
 export const WithIcon: Story = {
-  render: (args) => {
-    const ChevronRight = () => (
-      <svg
-        fill="none"
-        height="16"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Chevron Right</title>
-        <polyline points="9 18 15 12 9 6" />
-      </svg>
-    );
-
-    return (
-      <Button {...args}>
-        {args.children}
-        <ChevronRight />
-      </Button>
-    );
-  },
+  render: (args) => (
+    <Button {...args}>
+      {args.children}
+      <ChevronRightIcon />
+    </Button>
+  ),
   args: {
     variant: "default",
     size: "default",

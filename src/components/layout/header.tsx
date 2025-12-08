@@ -24,7 +24,7 @@ export function Header() {
             />
           </div>
         </div>
-        <span className="font-bold font-display text-foreground text-xl tracking-tight">
+        <span className="font-bold text-foreground text-xl tracking-tight">
           Nyatinte<span className="text-primary">.</span>com
         </span>
       </Link>

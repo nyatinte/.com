@@ -26,12 +26,12 @@ export function LatestPostList() {
             </div>
 
             <Link href={post.url}>
-              <h3 className="mb-3 font-bold font-display text-foreground text-xl leading-tight transition-colors duration-300 group-hover:text-primary">
+              <h3 className="mb-3 font-bold text-foreground text-xl leading-tight transition-colors duration-300 group-hover:text-primary">
                 {post.data.title}
               </h3>
             </Link>
 
-            <p className="mb-6 line-clamp-3 flex-1 font-body text-muted-foreground text-sm leading-relaxed">
+            <p className="mb-6 line-clamp-3 flex-1 text-muted-foreground text-sm leading-relaxed">
               {post.data.description}
             </p>
 

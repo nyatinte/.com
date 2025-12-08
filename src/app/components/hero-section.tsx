@@ -21,11 +21,11 @@ export function HeroSection() {
         <div className="flex flex-col gap-6 text-center md:text-left">
           <StatusBadge className="mx-auto md:mx-0">Web Engineer</StatusBadge>
 
-          <h1 className="font-bold font-display text-5xl text-foreground leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="font-bold text-5xl text-foreground leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
             Nyatinte<span className="text-primary">.</span>com
           </h1>
 
-          <p className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text font-bold font-display text-2xl text-muted-foreground text-transparent tracking-tight md:text-3xl">
+          <p className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text font-bold text-2xl text-muted-foreground text-transparent tracking-tight md:text-3xl">
             WebとAIたまにゲーム
           </p>
 

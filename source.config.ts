@@ -29,6 +29,7 @@ export const blog = defineDocs({
         .optional()
         .default([]),
       draft: z.boolean().optional().default(false),
+      spoiler: z.boolean().optional().default(false),
     }),
     postprocess: {
       includeProcessedMarkdown: true,

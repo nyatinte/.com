@@ -11,4 +11,8 @@ export const NYATINTE = {
     id: "nyatinte",
     url: "https://zenn.dev/nyatinte",
   },
+  email: {
+    address: "takumi.062757@gmail.com",
+    url: "mailto:takumi.062757@gmail.com",
+  },
 } as const;

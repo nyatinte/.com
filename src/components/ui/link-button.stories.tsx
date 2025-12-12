@@ -20,17 +20,13 @@ const meta = {
       control: "text",
       description: "ボタンに表示するタイトル",
     },
+    subtitle: {
+      control: "text",
+      description: "タイトル下に表示するサブテキスト（ユーザーID等）",
+    },
     href: {
       control: "text",
-      description: "リンク先URL",
-    },
-    email: {
-      control: "text",
-      description: "コピーするメールアドレス",
-    },
-    isEmail: {
-      control: "boolean",
-      description: "メールコピーモードを有効にする",
+      description: "リンク先URL（mailto:も可）",
     },
   },
   decorators: [
@@ -51,6 +47,7 @@ type Story = StoryObj<typeof meta>;
 export const Twitter: Story = {
   args: {
     title: "X / Twitter",
+    subtitle: "@nyatinte",
     href: "https://x.com/nyatinte",
     children: <HugeiconsIcon icon={NewTwitterIcon} size={24} />,
   },
@@ -62,6 +59,7 @@ export const Twitter: Story = {
 export const GitHub: Story = {
   args: {
     title: "GitHub",
+    subtitle: "@nyatinte",
     href: "https://github.com/nyatinte",
     children: <HugeiconsIcon icon={GithubIcon} size={24} />,
   },
@@ -73,19 +71,20 @@ export const GitHub: Story = {
 export const Zenn: Story = {
   args: {
     title: "Zenn",
+    subtitle: "@nyatinte",
     href: "https://zenn.dev/nyatinte",
     children: <ZennIcon className="h-6 w-6" />,
   },
 };
 
 /**
- * メールコピーボタン（クリックでクリップボードにコピー）
+ * メールリンクボタン（クリックでメールアプリが開く）
  */
 export const Email: Story = {
   args: {
-    title: "Copy Email",
-    email: "example@example.com",
-    isEmail: true,
+    title: "Email",
+    subtitle: "example@example.com",
+    href: "mailto:example@example.com",
     children: <HugeiconsIcon icon={Mail01Icon} size={24} />,
   },
 };
@@ -97,16 +96,32 @@ export const Stack: Story = {
   decorators: [
     () => (
       <div className="flex w-96 flex-col gap-4">
-        <LinkButton href="https://x.com/nyatinte" title="X / Twitter">
+        <LinkButton
+          href="https://x.com/nyatinte"
+          subtitle="@nyatinte"
+          title="X / Twitter"
+        >
           <HugeiconsIcon icon={NewTwitterIcon} size={24} />
         </LinkButton>
-        <LinkButton href="https://github.com/nyatinte" title="GitHub">
+        <LinkButton
+          href="https://github.com/nyatinte"
+          subtitle="@nyatinte"
+          title="GitHub"
+        >
           <HugeiconsIcon icon={GithubIcon} size={24} />
         </LinkButton>
-        <LinkButton href="https://zenn.dev/nyatinte" title="Zenn">
+        <LinkButton
+          href="https://zenn.dev/nyatinte"
+          subtitle="@nyatinte"
+          title="Zenn"
+        >
           <ZennIcon className="h-6 w-6" />
         </LinkButton>
-        <LinkButton email="example@example.com" isEmail title="Copy Email">
+        <LinkButton
+          href="mailto:example@example.com"
+          subtitle="example@example.com"
+          title="Email"
+        >
           <HugeiconsIcon icon={Mail01Icon} size={24} />
         </LinkButton>
       </div>
@@ -114,6 +129,7 @@ export const Stack: Story = {
   ],
   args: {
     title: "",
+    href: "",
     children: null,
   },
 };

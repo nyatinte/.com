@@ -26,19 +26,35 @@ export default function ContactPage() {
       />
 
       <div className="fade-in slide-in-from-bottom-5 flex w-full animate-in flex-col gap-4 delay-200 duration-800">
-        <LinkButton href={NYATINTE.x.url} title="X / Twitter">
+        <LinkButton
+          href={NYATINTE.x.url}
+          subtitle={`@${NYATINTE.x.id}`}
+          title="X / Twitter"
+        >
           <HugeiconsIcon icon={NewTwitterIcon} size={24} />
         </LinkButton>
 
-        <LinkButton href={NYATINTE.github.url} title="GitHub">
+        <LinkButton
+          href={NYATINTE.github.url}
+          subtitle={`@${NYATINTE.github.id}`}
+          title="GitHub"
+        >
           <HugeiconsIcon icon={GithubIcon} size={24} />
         </LinkButton>
 
-        <LinkButton href={NYATINTE.zenn.url} title="Zenn">
+        <LinkButton
+          href={NYATINTE.zenn.url}
+          subtitle={`@${NYATINTE.zenn.id}`}
+          title="Zenn"
+        >
           <ZennIcon className="h-6 w-6" />
         </LinkButton>
 
-        <LinkButton email={NYATINTE.email.address} isEmail title="Copy Email">
+        <LinkButton
+          href={NYATINTE.email.url}
+          subtitle={NYATINTE.email.address}
+          title="Email"
+        >
           <HugeiconsIcon icon={Mail01Icon} size={24} />
         </LinkButton>
       </div>

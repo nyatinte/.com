@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { ReadingTime } from "@/components/ui/reading-time";
+import { Spoiler } from "@/components/ui/spoiler";
 import { type BlogPage, blog, getPageImage } from "@/lib/source";
 import { CopyMarkdownButton } from "./components/copy-markdown-button";
 import { getMDXComponents } from "./components/mdx-components";
@@ -75,6 +76,14 @@ export default async function PostPage({ params }: Props) {
               <Badge key={tag}>{tag}</Badge>
             ))}
           </div>
+        )}
+
+        {post.data.spoiler && (
+          <Spoiler
+            className="mt-6"
+            description="この記事にはゲームのストーリーに関するネタバレが含まれています。未クリアの方はご注意ください。"
+            variant="game"
+          />
         )}
       </header>
       <div className="relative z-10 mx-auto flex max-w-7xl px-4 md:px-0">

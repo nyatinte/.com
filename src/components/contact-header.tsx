@@ -17,7 +17,6 @@ export function ContactHeader({
 }: ContactHeaderProps) {
   return (
     <div className="fade-in slide-in-from-bottom-5 mb-10 flex animate-in flex-col items-center text-center delay-100 duration-800">
-      {/* Avatar with decorative ring */}
       <div className="group relative mb-6 h-28 w-28">
         <div className="relative z-10 h-full w-full overflow-hidden rounded-full border-2 border-border bg-card shadow-xl transition-colors duration-300 group-hover:border-primary">
           <Image

@@ -34,3 +34,6 @@ jobs:
 
       - name: Run lint
         run: pnpm lint
+
+      - name: Run textlint
+        run: pnpm textlint

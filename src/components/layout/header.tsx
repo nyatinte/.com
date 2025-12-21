@@ -9,6 +9,11 @@ import { LinkIcon } from "@/components/ui/link-icon";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { NYATINTE } from "@/constant/nyatinte";
 
+const NAV_LINKS = [
+  { name: "Posts", href: "/posts" },
+  { name: "Contact", href: "/contact" },
+] as const;
+
 export function Header() {
   return (
     <header className="fade-in slide-in-from-top-5 flex animate-in items-center justify-between duration-800">
@@ -32,14 +37,17 @@ export function Header() {
       {/* Nav & Icons & Switcher */}
       <div className="flex items-center gap-6 md:gap-8">
         <nav className="hidden gap-8 font-mono text-muted-foreground text-sm md:flex">
-          {["Playground", "About"].map((item) => (
-            // biome-ignore lint/a11y/useValidAnchor: TODO: implement page...
-            <a className="group relative overflow-hidden" href="#" key={item}>
+          {NAV_LINKS.map((link) => (
+            <Link
+              className="group relative overflow-hidden"
+              href={link.href}
+              key={link.name}
+            >
               <span className="relative z-10 transition-colors duration-300 group-hover:text-primary">
-                {item}
+                {link.name}
               </span>
               <span className="-translate-x-full absolute bottom-0 left-0 h-[1px] w-full transform bg-primary transition-transform duration-300 group-hover:translate-x-0" />
-            </a>
+            </Link>
           ))}
         </nav>
 

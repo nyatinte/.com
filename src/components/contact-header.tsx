@@ -28,7 +28,6 @@ export function ContactHeader({
             src={imageSrc}
           />
         </div>
-        {/* Decorative rotating ring */}
         <div className="pointer-events-none absolute inset-[-4px] animate-spin rounded-full border border-primary/30 [animation-duration:20s]" />
       </div>
 

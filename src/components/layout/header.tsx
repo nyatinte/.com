@@ -10,7 +10,6 @@ import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { NYATINTE } from "@/constant/nyatinte";
 
 const NAV_LINKS = [
-  { name: "Index", href: "/" },
   { name: "Posts", href: "/posts" },
   { name: "Contact", href: "/contact" },
 ] as const;

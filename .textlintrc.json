@@ -1,6 +1,11 @@
 {
+  "plugins": {
+    "mdx": true
+  },
   "rules": {
-    "preset-ja-technical-writing": true,
+    "preset-ja-technical-writing": {
+      "no-exclamation-question-mark": false
+    },
     "preset-ai-writing": true
   }
 }

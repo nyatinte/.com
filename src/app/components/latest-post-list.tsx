@@ -1,5 +1,7 @@
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
+import { ReadingTime } from "@/components/ui/reading-time";
 import { blog } from "@/lib/source";
 
 export function LatestPostList() {
@@ -16,10 +18,7 @@ export function LatestPostList() {
           {/* Card Content */}
           <div className="relative flex flex-1 flex-col p-6 md:p-8">
             <div className="mb-3 flex items-center gap-3 font-mono text-primary text-xs">
-              <span className="flex items-center gap-1">
-                <Cpu size={12} />
-                {post.data.readingTime ? `${post.data.readingTime}分` : "5分"}
-              </span>
+              <ReadingTime content={post.data.getText("processed")} />
               <span>•</span>
               <span>
                 {new Date(post.data.date).toLocaleDateString("ja-JP")}
@@ -27,12 +26,12 @@ export function LatestPostList() {
             </div>
 
             <Link href={post.url}>
-              <h3 className="mb-3 font-bold font-display text-foreground text-xl leading-tight transition-colors duration-300 group-hover:text-primary">
+              <h3 className="mb-3 font-bold text-foreground text-xl leading-tight transition-colors duration-300 group-hover:text-primary">
                 {post.data.title}
               </h3>
             </Link>
 
-            <p className="mb-6 line-clamp-3 flex-1 font-body text-muted-foreground text-sm leading-relaxed">
+            <p className="mb-6 line-clamp-3 flex-1 text-muted-foreground text-sm leading-relaxed">
               {post.data.description}
             </p>
 
@@ -56,8 +55,9 @@ export function LatestPostList() {
               <span className="decoration-2 underline-offset-4 group-hover/link:underline">
                 READ MORE
               </span>
-              <ArrowRight
+              <HugeiconsIcon
                 className="ml-2 transform transition-transform group-hover/link:translate-x-1"
+                icon={ArrowRight02Icon}
                 size={16}
               />
             </Link>

@@ -3,9 +3,7 @@ title: "markdown-exitで作るモダンなブログシステム"
 date: 2025-01-16
 description: "ContentLayer風のブログシステムをmarkdown-exitで実装する方法を解説します"
 tags: ["Next.js", "TypeScript", "Markdown"]
-author: "nyatinte"
 draft: false
-readingTime: 5
 ---
 
 # はじめに
@@ -14,7 +12,7 @@ readingTime: 5
 
 ## 主な機能
 
-markdown-exitとZodを組み合わせることで、以下の機能を実現できます:
+markdown-exitとZodを組み合わせることで、以下の機能を実現できます。
 
 - 型安全なコンテンツ管理
 - ビルドタイム処理
@@ -33,7 +31,7 @@ const posts = await getAllPosts()
 
 ## アーキテクチャ
 
-システムは以下のレイヤーで構成されています:
+システムは以下のレイヤーで構成されています。
 
 1. **Loader** - マークダウンファイルの読み込み
 2. **Processor** - HTML変換と計算フィールドの生成

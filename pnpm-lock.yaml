@@ -26,9 +26,6 @@ importers:
       '@orama/tokenizers':
         specifier: ^3.1.16
         version: 3.1.16
-      '@radix-ui/react-use-controllable-state':
-        specifier: ^1.2.2
-        version: 1.2.2(@types/react@19.2.2)(react@19.2.3)
       '@shikijs/rehype':
         specifier: ^3.15.0
         version: 3.15.0
